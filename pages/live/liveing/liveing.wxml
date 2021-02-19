@@ -1,0 +1,7 @@
+<!--pages/live/liveing/liveing.wxml-->
+<view class="liveling-content">
+  <block wx:for="{{list}}" wx:key="{{item.id}}">
+    <liveItem detail="{{item}}"></liveItem>
+    <van-divider hairline  custom-style="border:0 solid #DDDDDD"/>
+  </block>
+</view>

@@ -1,0 +1,47 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<!-- <view class="article-title flex-con flex-col flex-con-end">
+    <image class="bg-pic" src="{{articleDetail.imagePath}}" mode="aspectFill"></image>
+    <view class="title-text ellipsis">{{articleDetail.title}}</view>
+</view> -->
+<view class="detailTitle">
+    <text>{{articleDetail.title}}</text>
+</view>
+<view class="from-time flex-con align-items-center flex-con-between">
+    <view class="from">来源：{{articleDetail.source}}</view>
+    <view class="time">{{filter.dateFormate(articleDetail.addTime)}}</view>
+</view>
+<!-- <view class="themes padding-0-20 mt_20">
+    <view class="theme-item">
+        <text class="item-text">打造主题：</text>
+        保护环境 共享文明
+    </view>
+    <view class="theme-item">
+        <text class="item-text">项目亮点：</text>
+        保护环境 共享文明
+    </view>
+    <view class="theme-item">
+        <text class="item-text">项目特色：</text>
+        按照“五好”目标倾力打造，建设“赞花儿”品牌小区。通过“保护环境 共享文明”阵地打造，进一步发挥党建引领作用，打造居民身心健康、环境优雅美丽的特色小区，营造共建共享的和谐氛围。
+    </view>
+</view> -->
+<!-- 富文本 -->
+<view class="main_text font24">
+    <!-- <template is="wxParse" data="{{wxParseData:articleDetails.nodes}}" /> -->
+    <rich-text nodes="{{String}}"></rich-text>
+</view>
+<!-- 视频播放 -->
+<!-- <view class="video-box padding-0-20">
+    <video class="video-list-logo" src="https://szw.video.blackshell.cn/20200615101842.mp4" />
+</view> -->
+<!-- 底部分享 -->
+<view class="bottom-fixed fix-bottom padding-0-60 flex-con flex-con-between align-items-center">
+    <view class="left-persons">{{articleDetail.readNumber}}人预览</view>
+    <view class="right-share flex-con align-items-center">
+        <image wx:if="{{!isPraised}}" bindtap="likeArticle" data-articleid="{{articleDetail.id}}" src="https://www.quweiquwei.com:5743/images/social_pic/click.png"></image>
+        <image wx:else src="https://www.quweiquwei.com:5743/images/social_pic/click_success.png"></image>
+        <button class="article-share-btn" open-type="share" data-name="articleshare" data-articeleid="{{articleDetail.id}}" data-title="{{articleDetail.title}}" data-url="{{articleDetail.imagePath}}">
+            <image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/weChat_share.png" lazy-load="true"></image>
+        </button>
+        <!-- <image src="https://www.quweiquwei.com:5743/images/social_pic/friend_circle_share.png"></image> -->
+    </view>
+</view>

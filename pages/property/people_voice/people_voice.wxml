@@ -1,0 +1,59 @@
+   <wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+
+<!-- <navigation title="{{title}}" show_bol="false"></navigation>
+<view class="bg-white peopleVoiceBox" wx:for="{{communitylist}}" wx:for-item="item" wx:key="index">
+	<view bindtap="TaptoTopic_details" data-id="{{item.id}}">
+		<view class="clearfix PVB_avatarBox">
+			<view class="float-l PVB_avatar">
+				<image class="PVBAImg" src="{{item.head_image}}" />
+				{{item.show_name}}
+			</view>
+			<text class="float-r">{{item.add_time_str}}</text>
+		</view>
+		<view class="PVB_title text_ellipsis_two">{{item.title}}</view>
+		<view class="PVB_text">
+			{{item.content}}
+		</view>
+	</view>
+	<view class="PVB_iconBox">
+		<view class="float-r flex-con align-items-center">
+			<image class="pageViews" src="/images/pageViews.png" />
+			{{item.read_number}}人浏览
+			<image class="icon_message" bindtap="TaptoTopic_details" data-id="{{item.id}}" src="/images/icon_message.png" />
+		</view>
+	</view>
+</view> -->
+
+
+<!-- 新的 -->
+
+<navigation title="{{title}}" show_bol="false"></navigation>
+<view class="bg-white peopleVoiceBox" wx:for="{{communityVoiceList}}" wx:for-item="item" wx:key="index">
+	<view bindtap="TaptoTopic_details" data-id="{{item.id}}">
+		<view class="clearfix PVB_avatarBox">
+			<view class="float-l PVB_avatar">
+				<image class="PVBAImg" src="{{item.headImage}}" />
+				{{item.showName}}
+			</view>
+			<text class="float-r">{{filter.dateFormate(item.addTime)}}</text>
+		</view>
+		<view class="PVB_title text_ellipsis_two">{{item.title}}</view>
+		<view class="PVB_text">
+			{{item.content}}
+		</view>
+	</view>
+	<view class="PVB_iconBox">
+		<view class="float-r flex-con align-items-center">
+			<image class="pageViews" src="/images/pageViews.png" />
+			{{item.readNumber}}人浏览
+			<image class="icon_message" bindtap="TaptoTopic_details" data-id="{{item.id}}" src="/images/icon_message.png" />
+		</view>
+	</view>
+</view>
+
+<view class="editorPosition">
+	<image wx:if="{{wxUserInfo.avatarUrl&&wxUserInfo.avatarUrl!=''}}" class="icon_editor01" bindtap="TaptoRelease_topic" data-id="{{navigation_id}}" src="/images/icon_editor01.png" />
+	<button wx:else class="getUserInfoStyle icon_editor01" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+		<image class="icon_editor01" src="/images/icon_editor01.png" />
+	</button>
+</view>

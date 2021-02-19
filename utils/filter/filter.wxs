@@ -1,0 +1,41 @@
+var Formate = {
+  dateFormate: function (time) {
+    var timer = getDate(time * 1000);
+    var y = timer.getFullYear();
+    var m = timer.getMonth() + 1 < 10 ? '0' + (timer.getMonth() + 1) : timer.getMonth() + 1;
+    var d = timer.getDate() > 9 ? timer.getDate() : '0' + timer.getDate();
+    var h = timer.getHours() < 10 ? '0' + timer.getHours() : timer.getHours();
+    var mint = timer.getMinutes() < 10 ? '0' + timer.getMinutes() : timer.getMinutes();
+    return y + '-' + m + '-' + d + ' ' + h + ':' + mint;
+  },
+  arrayFormat: function (arr) {
+    return JSON.parse(arr)
+  },
+  handleTime: function (date) {
+    var dateTime = getDate(date)
+    var currentTime = getDate();
+    var currentHours = currentTime.getHours()
+    var h = dateTime.getHours()
+    var m = dateTime.getMinutes()
+    var month = dateTime.getMonth() + 1
+    var day = dateTime.getDate()
+    var d = currentTime.getDate()
+    if (day - d >= 1 && day - d < 2) {
+      return '明天 ' + h + " : " + (m>9?m:'0'+m)
+    } else if (day - d < 1) {
+      return '今天 ' + h + " : " + m
+    } else if (day - d >= 2) {
+      return month + '-' + day + ' ' + h + " : " + m
+    }
+  },
+  handleTicket:function(num){
+    return num>9999?(num/10000).toFixed(2):num
+  }
+}
+
+module.exports = {
+  dateFormate: Formate.dateFormate,
+  arrayFormat: Formate.arrayFormat,
+  handleTime: Formate.handleTime,
+  handleTicket:Formate.handleTicket
+}

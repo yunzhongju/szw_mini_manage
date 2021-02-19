@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "帮助",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f0f0f2",
+  "enablePullDownRefresh": false,
+  "usingComponents": {}
+}

@@ -1,0 +1,10 @@
+{
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "新闻详情",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "van-share-sheet": "@vant/weapp/share-sheet/index",
+        "share-canvas":"../../../components/share/share"
+    }
+}

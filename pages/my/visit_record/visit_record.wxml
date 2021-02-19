@@ -1,0 +1,77 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="bg-white clearfix bar-list flex-con flex-con-start align-items-center">
+	<view class="flex-1">
+		<text class="bar {{pageType==1?'active':''}}" bindtap="switchBar" data-pageType="1">新闻</text>
+	</view>
+	<view class="flex-1 {{is_video==0?'hidden':''}}">
+		<text class="bar {{pageType==2?'active':''}}" bindtap="switchBar" data-pageType="2">视频</text>
+	</view>
+	<view class="flex-1">
+		<text class="bar {{pageType==3?'active':''}}" bindtap="switchBar" data-pageType="3">话题</text>
+	</view>
+</view>
+<!-- 新闻 -->
+<view wx:if="{{pageType==1}}" class="bg-white newlistBox contentBox01" wx:for="{{newsList}}" wx:for-item="item" wx:key="index" bindtap="TaptoNews_details" data-id="{{item.contentId}}">
+	<view class="clearfix flex-con flex-con-start newlist">
+		<view class="flex-1 newlistLeft">
+			<view class='title text_ellipsis_two'>{{item.title}}</view>
+			<view class='clearfix tip'>
+				<view class="float-l tipLeft flex-con align-items-center">
+					<image class="pageViews" src="/images/pageViews.png" />
+					{{item.readNumber}}人浏览
+				</view>
+			</view>
+		</view>
+		<image class="newlistLogo" mode="aspectFill" src="{{item.imagePath}}"/>
+	</view>
+</view>
+<!-- 视频 -->
+<view wx:if="{{pageType==2}}" class="bg-white newlistBox contentBox01" wx:for="{{videoList}}" wx:for-item="item" wx:key="index" bindtap="TaptoVideo_details" data-id="{{item.contentId}}">
+	<view class="clearfix flex-con flex-con-start newlist">
+		<view class="flex-1 newlistLeft">
+			<view class='title text_ellipsis_two'>{{item.title}}</view>
+			<view class='clearfix tip'>
+				<view class="float-l tipLeft flex-con align-items-center">
+					<image class="pageViews" src="/images/pageViews.png" />
+					{{item.readNumber}}人浏览
+				</view>
+			</view>
+		</view>
+		<view class="newlistLogo icon_playBox">
+			<image class="newlistLogo" mode="aspectFill" src="{{item.imagePath}}"></image>
+			<!-- <video class="newlistLogo" src="{{item.info.file_path}}" controls="{{false}}" /> -->
+			<image class="icon_play" src="/images/icon_play.png"></image>
+		</view>
+	</view>
+</view>
+
+<!-- 话题 -->
+<view
+ wx:if="{{pageType==3}}"
+ class="bg-white peopleVoiceBox contentBox01"
+ wx:for="{{topicList}}"
+ wx:for-item="item"
+ wx:key="index"
+>
+	<view class="clearfix PVB_avatarBox">
+		<view class="float-l PVB_avatar">
+			<image class="PVBAImg" src="{{wxUserInfo.avatarUrl}}" />
+			{{wxUserInfo.nickName}}
+		</view>
+		<text class="float-r">{{filter.dateFormate(item.addTime)}}</text>
+	</view>
+	<view class="PVB_title text_ellipsis_two">{{item.title}}</view>
+	<view class="PVB_text">
+		{{item.content}}
+	</view>
+	<view class="PVB_iconBox">
+		来自
+		<text class="color03" bindtap="TaptoPeople_voice" data-id="{{item}}">{{item.channelName}}</text>
+		<view class="float-r flex-con align-items-center">
+			<image class="pageViews" src="/images/pageViews.png" />
+			{{item.readNumber}}人浏览
+			<image class="icon_message" bindtap="TaptoTopic_details" data-id="{{item.contentId}}" src="/images/icon_message.png"/>
+		</view>
+	</view>
+</view>
+

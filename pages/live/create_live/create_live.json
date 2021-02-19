@@ -1,0 +1,23 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "开通直播",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh":false,
+  "usingComponents": {
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-button": "@vant/weapp/button/index",
+    "simple-crop": "../simple-crop/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
+  }
+}

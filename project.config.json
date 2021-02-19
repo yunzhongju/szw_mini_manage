@@ -1,0 +1,197 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.14.0",
+  "appid": "wx50ce5f3ba10dcc1d",
+  "projectname": "shezhiwei_mini",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/index/active_details/player_details/player_details",
+          "pathName": "pages/index/active_details/player_details/player_details",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/active_details/player",
+          "pathName": "pages/index/active_details/active_details",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/active_details/active_info/active_info",
+          "pathName": "pages/index/active_details/active_info/active_info",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/my/my_votes/my_votes",
+          "pathName": "pages/my/my_votes/my_votes",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/switch_position/switch_position",
+          "pathName": "pages/index/switch_position/switch_position",
+          "query": "type=index",
+          "scene": null
+        },
+        {
+          "name": "pages/live/index/index",
+          "pathName": "pages/live/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/detail/detail",
+          "pathName": "pages/live/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/create_live/create_live",
+          "pathName": "pages/live/create_live/create_live",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/news_details/news_details",
+          "pathName": "pages/index/news_details/news_details",
+          "query": "id= 304",
+          "scene": null
+        },
+        {
+          "name": "pages/live/home/home",
+          "pathName": "pages/live/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/reservation/reservation",
+          "pathName": "pages/live/reservation/reservation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/active_details/active_details",
+          "pathName": "pages/index/active_details/active_details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index/index",
+          "pathName": "pages/index/index/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

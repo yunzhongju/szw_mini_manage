@@ -1,0 +1,21 @@
+@import "../../../utils/css/common.wxss";
+.banner {
+    width: 686rpx;
+    height: 320rpx;
+    margin: 30rpx 32rpx;
+}
+
+.publishBtn {
+    width: 320rpx;
+    height: 90rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #F72517;
+    border-radius: 8rpx;
+    text-align: center;
+    line-height: 90rpx;
+    position: absolute;
+    bottom: 55rpx;
+    left: 50%;
+    margin-left: -160rpx;
+}

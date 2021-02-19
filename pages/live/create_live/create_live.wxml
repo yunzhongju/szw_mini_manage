@@ -1,0 +1,254 @@
+<!--pages/live/create_live/create_live.wxml-->
+<view class="content">
+  <view class="field-item">
+    <van-row>
+      <van-col span="24">
+        <van-field 
+          custom-style="border-radius: 20rpx;"
+          value="{{ title }}" 
+          clearable
+          required
+          label="主题"
+          placeholder="请填写直播主题(3-17个汉字)" 
+          bind:change="onChangeTitle" />
+      </van-col>
+    </van-row>
+  </view>
+  <view class="field-item">
+    <van-row>
+      <van-col span="24">
+        <van-field 
+          custom-style="border-radius: 20rpx;"
+          value="{{ nickname }}"
+          clearable 
+          required
+          label="昵称"
+          placeholder="请输入主播呢称(2-15汉字)" 
+          bind:change="onChangeNickname" />
+      </van-col>
+    </van-row>
+  </view>
+  <view class="field-item">
+    <van-row>
+      <van-col span="24">
+        <van-field 
+          custom-style="border-radius: 20rpx;"
+          value="{{wechat }}"
+          clearable 
+          required
+          label="微信号"
+          placeholder="请输入微信号" 
+          bind:change="onChangeWechat" />
+      </van-col>
+    </van-row>
+  </view>
+  <view class="field-item">
+    <van-row>
+      <van-col span="24" bindtap="onChangeTime">
+        <van-field 
+          custom-style="border-radius: 20rpx;"
+          value="{{valueTime}}"
+          clearable 
+          readonly
+          required
+          label="开播时间"
+          placeholder="请选择开播时间"/>
+      </van-col>
+    </van-row>
+  </view>
+  <view class="field-item radio-class">
+    <van-row>
+      <van-col span="8">
+        <text>直播类型</text>
+      </van-col>
+      <van-col span="16">
+        <van-radio-group 
+          value="{{ radio }}" 
+          bind:change="onChangeRadio"
+          style="display:flex;">
+          <van-radio name="0">直播</van-radio>
+          <van-radio name="1" style="margin-left:30rpx">推流</van-radio>
+        </van-radio-group>
+      </van-col>
+    </van-row>
+  </view>
+  <view class="field-item">
+    <van-row>
+      <van-col span="24">
+        <text class="tip">请正确填写微信号，否中无法开通</text>
+      </van-col>
+    </van-row>
+  </view>
+  <view class="img-card field-item">
+    <view wx:if="{{coverImg}}" class="showImg-item">
+      <image class="img-size" src="{{coverImg}}" mode="aspectFill"></image>
+      <text class="show-close" bindtap="handleDelete" data-type="1">x</text>
+    </view>
+    <view wx:if="{{coverImg==''}}">
+      <van-row>
+        <van-col span="24">
+          <text>分享卡片封面</text>
+        </van-col>
+      </van-row>
+      <view class="tip-text">  
+        <van-row class="custom-class">
+          <van-col span="24">
+            <text class="tip-text">观众在微信对话框内分享的直播间将以分享开篇的形式呈现</text>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="tip-text">
+        <van-row class="custom-class">
+          <van-col span="24">
+            <text class="tip-text">建议尺寸：800像素x640像素</text>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="tip-text">
+        <van-row class="custom-class">
+          <van-col span="15">
+            <text>图片大小不超过1M</text>
+          </van-col>
+          <van-col span="7">
+            <text class="uploadBtn" bindtap="handleUploadImg" data-type="1">上传图片</text>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+  </view>
+
+  <view class="img-card field-item">
+    <view wx:if="{{bgImg}}" class="showImg-item">
+      <image class="img-size" src="{{bgImg}}" mode="aspectFill"></image>
+      <text class="show-close" bindtap="handleDelete" data-type="2">x</text>
+    </view>
+    <view wx:if="{{bgImg==''}}">
+      <van-row>
+        <van-col span="24">
+          <text>直播间背景</text>
+        </van-col>
+      </van-row>
+      <view class="tip-text">  
+        <van-row class="custom-class">
+          <van-col span="24">
+            <text class="tip-text">观众在微信对话框内分享的直播间将以分享开篇的形式呈现</text>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="tip-text">
+        <van-row class="custom-class">
+          <van-col span="24">
+            <text class="tip-text">建议尺寸：1080像素x1920像素</text>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="tip-text">
+        <van-row class="custom-class">
+          <van-col span="15">
+            <text>图片大小不超过1M</text>
+          </van-col>
+          <van-col span="7">
+            <text class="uploadBtn" bindtap="handleUploadImg" data-type="2">上传图片</text>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+    
+  </view>
+  <view class="field-item">
+    <van-row>
+      <van-col span="24">
+        <view class="tip1">
+          <text bindtap="handleRule">直播规则说明</text>
+        </view>  
+      </van-col>
+    </van-row>
+
+    <van-dialog
+      use-slot
+      title="规则说明"
+      show="{{ show }}"
+      confirm-button-open-type="getUserInfo"
+      bind:close="onClose"
+      bind:getuserinfo="getUserInfo"
+    >
+      <view class="show-rule">
+        <van-row>
+          <van-col span="24">
+            <text>1·尊敬的用户，您好! 您第一次开通直播，根据国家法律规定需要通过腾讯的实名认证,请您配合</text>
+          </van-col>
+        </van-row>
+        <van-row>
+          <van-col span="24"><text>
+            2·您开通直播后每次重开直播只需重新填写直播主题
+          </text></van-col>
+        </van-row>
+        <van-row>
+          <van-col span="24"><text>
+            3·如果你再一次直播后修改了微信号，请手动更新微信号，不然可能导致您无法直播
+          </text></van-col>
+        </van-row>
+      </view>
+    </van-dialog>
+  </view>
+</view>
+<view style="height:150rpx"></view>
+<view class="submit-btn">
+  <van-button 
+    custom-style="width:100%;" 
+    bind:click="handleSubmit"
+    round
+    color="linear-gradient(to right, #4bb0ff, #6149f6)">
+    提交
+</van-button>
+</view>
+
+<view class="test2" wx:if="{{visible}}">
+  <simple-crop wx:if="{{visible}}" size="{{size}}" src="{{src}}" cropSizePercent="{{cropSizePercent}}" borderColor="{{borderColor}}" bindcropUpload="uploadCallback" bindcropClose="closeCallback" bindcropCrop="cropCallback"></simple-crop>
+  <image mode="widthFix" src="{{result}}"></image>
+</view>
+
+<view class="loading" wx:if="{{isLoading}}">
+  <van-loading type="spinner" color="#1989fa" />
+</view>
+
+<van-overlay show="{{ showOverlay }}" z-index="10" bind:click="onClickHide">
+  <view class="wrapper">
+   <view class="block" catch:tap="noop">
+    <van-row>
+      <van-col span="24">
+        <view class="show-up">
+          <image src="../../../images/live/share.png" class="showCode"></image>
+        </view>
+      </van-col>
+    </van-row>
+    <van-row class="">
+      <van-col span="24">
+        <view class="marg-top30">
+          <van-button 
+            type="warning" 
+            bind:click="handleSaveImg"
+            custom-style="width:100%;border-radius: 20rpx;background-color: red;" >保存图片</van-button>
+        </view>
+      </van-col>
+    </van-row>
+   </view>
+  </view>
+</van-overlay>
+<!-- 时间弹出 -->
+<view>
+  <van-popup 
+    show="{{ showTime }}"
+    position="bottom"
+    bind:close="onClose"
+    custom-style="height: 50%">
+    <van-datetime-picker
+      type="datetime"
+      value="{{ startTime}}"
+      min-date="{{ minDate+900000}}"
+      bind:confirm="onConfirm"
+      bind:input="onInputTime"
+      bind:cancel="onClose"
+    />
+  </van-popup>
+</view>

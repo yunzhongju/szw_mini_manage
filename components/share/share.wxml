@@ -1,0 +1,12 @@
+<!--components/share/share.wxml-->
+<view class="content" wx:if="{{isshow}}" catchtap="hideRepost" >
+  <canvas 
+    canvas-id="myCanvas"
+    id="myCanvas" 
+    disable-scroll="true"
+    catchtouchmove="touchMove"
+    bindtouchstart="touchStart"
+    bindtouchend="touchEnd"
+    style="width:{{canvasW}}px;height:{{canvasH}}px;background-color:rgb(255, 255, 255)"></canvas>
+  <view class="save-btn" catchtap="saveImage">保存图片</view>
+</view>

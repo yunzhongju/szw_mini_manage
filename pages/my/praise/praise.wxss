@@ -1,0 +1,222 @@
+@import "../../../utils/css/common.wxss";
+
+/* tab按钮 */
+
+.bar-list {
+    width: 100%;
+    padding-top: 16rpx;
+    text-align: center;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+}
+
+.bar {
+    display: inline-block;
+    height: 72rpx;
+    line-height: 72rpx;
+    position: relative;
+}
+
+.bar.active {
+    color: #E43E2C;
+}
+
+.bar.active::after {
+    content: "";
+    position: absolute;
+    left: 6%;
+    bottom: 0;
+    width: 88%;
+    height: 6rpx;
+    background-color: #E43E2C;
+    border-radius: 3rpx;
+}
+
+
+/* 居民之声内容 */
+
+.peopleVoiceBox {
+    padding: 22rpx 32rpx 0;
+    margin-bottom: 20rpx;
+}
+
+.PVB_avatarBox {
+    line-height: 80rpx;
+    font-size: 22rpx;
+    color: #666666;
+}
+
+.PVB_avatar {
+    font-size: 30rpx;
+    color: #333;
+}
+
+.PVBAImg {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10rpx;
+}
+
+.PVB_title {
+    font-size: 30rpx;
+    margin: 28rpx 0;
+}
+
+.PVB_text {
+    font-size: 26rpx;
+    color: #666666;
+    padding-bottom: 28rpx;
+    border-bottom: 1rpx solid #E6E6E6;
+}
+
+.PVB_iconBox {
+    height: 76rpx;
+    line-height: 76rpx;
+    font-size: 26rpx;
+    color: #666;
+}
+
+.PVB_iconBox .pageViews {
+    margin-right: 20rpx;
+}
+
+.PVB_iconBox .icon_message {
+    margin-left: 40rpx;
+}
+
+
+/* 新闻 */
+
+.newlistBox {
+    padding: 0 32rpx;
+}
+
+.newlist {
+    padding: 22rpx 0;
+}
+
+.newlistLeft {
+    margin-right: 46rpx;
+    width: 442rpx;
+}
+
+.newlistLeft .title {
+    font-size: 26rpx;
+}
+
+.newlistLeft .tip {
+    margin-top: 42rpx;
+}
+
+.tipLeft {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.tipLeft image {
+    display: inline-block;
+    margin-right: 12rpx;
+}
+
+
+/* 评论 */
+
+.CommentsBox {
+    margin: 28rpx 0 20rpx;
+    padding: 0 20rpx 0 32rpx;
+}
+
+.CB_title01 {
+    font-size: 28rpx;
+    color: #000;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-weight: 500;
+}
+
+.CB_con {
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #E6E6E6;
+}
+
+.CB_avatar {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.CB_avatar image {
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 50%;
+}
+
+.CB_text {
+    margin: -48rpx 0 0 68rpx;
+}
+
+.CBT_01 {
+    font-size: 24rpx;
+    width: 100%;
+    padding-right: 12rpx;
+}
+
+.CBT_01 text {
+    font-weight: 500;
+    color: #333;
+}
+
+.CBT_01 .CB_thumbUp {
+    font-weight: 400;
+    color: #666;
+    margin-left: 10rpx;
+}
+
+.CBT_01_time {
+    font-size: 20rpx;
+    font-weight: 400;
+    color: #999999;
+    float: right;
+}
+
+.CB_all {
+    font-size: 26rpx;
+    color: #666666;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.CB_con_next {
+    border-radius: 4rpx;
+    margin: 24rpx 0 7rpx;
+}
+
+.CB_con_next .CB_con {
+    padding: 0 20rpx 0 32rpx;
+    background-color: #F9F9F9;
+}
+
+.CB_con_next .CB_avatar,
+.CB_con_next .CB_text {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.CB_con_next .CB_text {
+    width: 100%;
+    margin: -80rpx 0 0 0;
+    padding-left: 68rpx;
+}
+
+.CB_con_next .CBT_01 {
+    padding-right: 0;
+}
+
+.CBN01 {
+    font-size: 20rpx;
+    color: #999;
+    margin-top: 4rpx;
+}

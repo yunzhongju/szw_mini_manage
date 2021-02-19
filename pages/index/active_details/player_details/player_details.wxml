@@ -1,0 +1,34 @@
+<view class="container" style="height:{{height}}px">
+	<view class="bg-white">
+		<view class="player_info_top">
+			<image wx:if="{{!detail.videoPath}}" src="{{detail.coverImg}}"></image>
+			<video 
+				wx:if="{{detail.videoPath}}" 
+				muted="true"
+				style="height:100%;width:100%;"
+				show-mute-btn="true"
+				enable-play-gesture="true"
+				src="{{detail.videoPath}}"></video>
+		</view>
+
+		<view class="player_info_mid">
+			<view>
+				<text class="player_name">{{detail.title}}</text>
+				<text>{{total}}票</text>
+			</view>
+			<view>
+				<text>{{detail.code}}号选手</text>
+			</view>
+			<view style="margin-bottom:50rpx">
+				<block wx:if="{{detail}}">
+          <rich-text nodes="{{detail.content}}"></rich-text>
+        </block> 
+			</view>
+		</view>
+	</view>
+	<button 
+		type="warn" 
+		class="btn" 
+		bindtap="handleVote" 
+		data-id="{{detail.id}}">{{detail.btnName}}</button>
+</view>

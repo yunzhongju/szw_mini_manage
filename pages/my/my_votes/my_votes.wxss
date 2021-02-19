@@ -1,0 +1,73 @@
+@import '../../../utils/css/common.wxss';
+.votes_list_box{
+  padding: 36rpx 56rpx;
+  display: flex;
+  flex-direction: column;
+}
+.votes_list_box .list_item_box{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40rpx;
+}
+.votes_list_box .list_item_box view{
+  margin-bottom: 24rpx;
+}
+.votes_list_box .list_item_box .item_box_top{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.votes_list_box .list_item_box .item_box_top text{
+  color: rgba(16, 16, 16, 1);
+  font-size: 12px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.votes_list_box .list_item_box .item_box_top image{
+  width: 34rpx;
+  height: 34rpx;
+  transform: rotate(180deg);
+}
+.votes_list_box .list_item_box .item_box_mid{
+  display: flex;
+}
+.votes_list_box .list_item_box .item_box_mid image{
+  width: 212rpx;
+  height: 176rpx;
+}
+.votes_list_box .list_item_box .item_box_mid text{
+  color: rgba(98, 98, 98, 1);
+  font-size: 12px;  
+}
+.votes_list_box .list_item_box .item_box_mid .right{
+  flex: 1;
+  margin-left: 12rpx;
+}
+
+.votes_list_box .list_item_box .item_box_mid .right .title text{
+  color: rgba(16, 16, 16, 1);
+  font-size: 12px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin-bottom: 28rpx;
+  font-weight: 600;
+}
+.votes_list_box .list_item_box .item_box_mid view .mid_mid{
+  display: flex !important;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
+}
+.votes_list_box .list_item_box .item_box_bot{
+  display: flex;
+  justify-content: flex-end;
+}
+.votes_list_box .list_item_box .item_box_bot button{
+  margin: 0;
+  color: rgba(42, 143, 247, 1);
+  font-size: 12px;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(12, 177, 255, 1);
+  border-radius: 8rpx;
+}

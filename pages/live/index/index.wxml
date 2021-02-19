@@ -1,0 +1,127 @@
+<!--pages/live/index/index.wxml-->
+<!-- 创建直播 -->
+<view class="create-live"  
+	wx:if="{{active==0}}"
+	bindtouchmove="touchmove" 
+	style="left:{{write[0]}}px;top:{{write[1]}}px;"
+	bindtap="handleToCreate">
+	<text>+</text>
+	<text class="create-live-text">点我直播</text>
+</view>
+<van-row>
+	<van-col span="24">
+		<van-tabs 
+			active="{{ active }}" 
+			animated 
+			swipeable 
+			sticky 
+			class="" 
+			bind:change="onChange">
+			<van-tab title="直播">
+				<view class="live-content">
+					<van-row>
+						<van-col span="24">
+							<view class="live-flex-wrap">
+								<view wx:for="{{liveList}}" wx:key="{{id}}" class="live-item live-position">
+									<image 
+										data-roomid="{{item.roomId}}"
+										bindtap="handleToLivePlayer" 
+										class="live-img-sizw live-border-radius" 
+										src="{{item.anchorImg}}">
+									</image>
+									<view class="item-bottom-b"></view>
+									<view class="item-bottom">
+										<van-row>
+											<van-col span="5">
+												<image class="icon-size" wx:if="{{!item.isFollow}}" bindtap="handleAttendance"
+												data-id="{{item.anchorInfoId}}"
+												data-isself="{{item.isAnchor}}"
+													src="../../../images/live/attendance.png"></image>
+												<image class="icon-size" 
+													data-id="{{item.anchorInfoId}}"
+													bindtap="handleCancleAttendance"
+													data-isself="{{item.isAnchor}}"
+												  wx:if="{{item.isFollow}}"
+													src="../../../images/live/attendance-h.png"></image>
+											</van-col>
+											<van-col span="15"><text class="font-size12 ellipsis_one marg-top">{{item.roomName}}</text>
+											</van-col>
+											<van-col span="4">
+												<image 
+													data-id="{{item.anchorInfoId}}"
+													bindtap="handleToAttendance" 
+													class="icon-size" src="../../../images/live/me.png"></image>
+											</van-col>
+										</van-row>
+									</view>
+									<view class="item-top-b live-border-radius"></view>
+									<view class="item-top live-border-radius">
+										<van-row gutter="10">
+											<van-col span="11">
+												<view class="top-left bg-color"  wx:if="{{item.liveStatus=='103'}}">
+													<text>回  放</text>
+													<image class="backimg" src="../../../images/live/back-play.png"></image>
+												</view>
+												<view class="top-left bg-color1" wx:if="{{item.liveStatus=='101'}}">
+													<text>直播中</text>
+													<image class="backimg" src="../../../images/live/liveing.png"></image>
+												</view>
+												<!-- <view wx:if="{{item.liveStatus=='103'}}" class="live-flex bg-color live-border-radius padd">
+													<text class="font-size12 marg-right">回      放</text>
+													<van-icon size="12px" name="video-o" />
+												</view>
+												<view wx:if="{{item.liveStatus=='101'}}" class="live-flex bg-color1 live-border-radius padd">
+													<text class="font-size12 marg-right">直播中</text>
+													<image class="icon-size20" src="../../../images/live/liveing.png"></image>
+												</view> -->
+											</van-col>
+											<van-col span="12">
+												<view class="flex-center" >
+													<text class="font-size10">{{item.vmAudience}}人观看</text>
+												</view>
+											</van-col>
+										</van-row>
+									</view>
+								</view>
+							</view>
+						</van-col>
+					</van-row>
+				</view>
+			</van-tab>
+			<van-tab title="关注">
+				<view class="live-content">
+					<view 
+						wx:for="{{attendanceList}}"
+						wx:key="{{id}}"
+						class="attendance-item live-border-radius marg-btom">
+						<van-row>
+							<van-col span="5">
+								<image class="head-size" src="{{item.headImage?item.headImage:'../../../images/live/live-test.png'}}"></image>
+							</van-col>
+							<van-col span="13">
+								<view class="show-flex"
+								 bindtap="handleToAttendance"
+								 data-id="{{item.anchorInfoId}}">
+									<text>{{item.anchorName}}</text>
+									<image class="icon-size live-marg-left20" src="../../../images/live/me.png"></image>
+								</view>
+							</van-col>
+							<van-col span="6">
+								<view class="show-flex">
+									<text 
+										data-id="{{item.anchorInfoId}}"
+										bindtap="handleCancleAttendance"
+										class="live-btn">取消关注</text>
+								</view>
+							</van-col>
+						</van-row>
+					</view>
+				</view>
+			</van-tab>
+		</van-tabs>
+	</van-col>
+</van-row>
+
+<view class="loading" wx:if="{{isLoading}}">
+  <van-loading type="spinner" color="#1989fa" />
+</view>

@@ -1,0 +1,5 @@
+<!--components/helper/helper.wxml-->
+<view class="helper" bindtap="handleToHelper" style="opacity: {{opacity}};">
+  <image src="../../images/helper.png"></image>
+  <text>帮助</text>
+</view>

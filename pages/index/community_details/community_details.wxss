@@ -1,0 +1,88 @@
+@import "../../../utils/css/common.wxss";
+
+/* 区域 */
+
+.area {
+    position: relative;
+    color: #fff;
+    height: 320rpx;
+    margin: 0 32rpx;
+}
+
+.area image {
+    width: 100%;
+    height: 100%;
+}
+
+.areaInfo {
+    position: absolute;
+    left: 22rpx;
+    bottom: 22rpx;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.FocusOnBox {
+    position: absolute;
+    right: 28rpx;
+    bottom: 20rpx;
+}
+
+.FocusOn {
+    width: 100rpx;
+    height: 44rpx;
+    background: #E43E2C;
+    border-radius: 4rpx;
+    font-size: 20rpx;
+    color: #fff;
+}
+
+.FocusOn0 {
+    background: #E43E2C;
+}
+
+.FocusOn1 {
+    background: #999999;
+}
+
+.FocusOn image {
+    width: 26rpx;
+    height: 23rpx;
+    display: inline-block;
+    margin-right: 10rpx;
+}
+
+
+/* 新闻 */
+
+.newlistBox {
+    padding: 0 32rpx;
+}
+
+.newlist {
+    padding: 22rpx 0;
+    border-bottom: 1rpx solid #D8D8D8;
+}
+
+.newlistLeft {
+    margin-right: 46rpx;
+    width: 442rpx;
+}
+
+.newlistLeft .title {
+    font-size: 26rpx;
+}
+
+.newlistLeft .tip {
+    margin-top: 42rpx;
+}
+
+.tipLeft {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.tipLeft image {
+    display: inline-block;
+    margin-right: 12rpx;
+}

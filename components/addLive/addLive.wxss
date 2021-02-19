@@ -1,0 +1,18 @@
+/* components/addLive/addLive.wxss */
+.addLive{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  line-height: 90rpx;
+  opacity: .8;
+}
+.addLive text{
+  border-radius: 50%;
+}

@@ -1,0 +1,20 @@
+<!--components/showList/showList.wxml-->
+<view class="show-content" >
+  <view class="empty" wx:if="{{list.length==0}}">
+    <text>暂无数据</text>
+  </view>
+  <block wx:for="{{list}}" wx:key="{{item.id}}">
+    <view 
+      class="show-item" 
+      data-id="{{item.roomId}}"
+      bindtap="handleToLiveRoom"
+      wx:if="{{list.length>0}}">
+      <view class="show-con-img">
+        <image src="{{item.anchorImg}}"></image>
+        <!-- <view class="show-count"></view>
+        <text class="number">{{item.vmAudience}}人次</text> -->
+      </view>
+      <text class="title setellipsis">{{item.roomName}}</text>
+    </view>
+  </block>
+</view>

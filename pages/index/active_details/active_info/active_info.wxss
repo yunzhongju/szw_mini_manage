@@ -1,0 +1,35 @@
+@import "../../../../utils/css/common.wxss";
+
+.active_info_top {
+  height: 400rpx;
+}
+
+.active_info_top image {
+  width: 100%;
+  height: 100%;
+}
+.active_info_mid{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+  padding: 0 68rpx;
+}
+.active_info_mid view .active_title{
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  text-align: left;
+  font-family: PingFangSC-bold;
+  font-weight: 600;
+}
+.active_info_mid view{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 46rpx;
+}
+.active_info_mid view text{
+  color: rgba(16, 16, 16, 1);
+  font-size: 14px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin-bottom: 42rpx;
+}

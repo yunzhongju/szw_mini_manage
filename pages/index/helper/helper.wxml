@@ -1,0 +1,18 @@
+<!--pages/index/helper/helper.wxml-->
+<view>
+  <scroll-view 
+    scroll-y="true" 
+    enhanced="true"
+    show-scrollbar="false"
+    paging-enabled="true"
+    style="height:{{height}}px;">
+    <block wx:for="{{type==0?list:liveList}}" wx:key="{{index}}">
+      <view style="width:100%;height:{{height}}px;" class="show-img">
+        <image 
+          src="{{item.image}}"
+          mode="widthFix"
+          style="height:100%;width:100%"></image>
+      </view>
+    </block>
+  </scroll-view>
+</view>

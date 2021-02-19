@@ -1,0 +1,10 @@
+<!--components/tabs/tabs.wxml-->
+<view class="tabs-content">
+  <block wx:for="{{tabs}}" wx:key="{{item.id}}">
+    <view class="tab" bindtap="change" data-id="{{index}}">
+      <text class="title {{index==active?'isActive':''}}">{{item.title}}</text>
+      <view class="divider1"></view>
+      <view class="divider" wx:if="{{index==active}}"></view>
+    </view>
+  </block>
+</view>

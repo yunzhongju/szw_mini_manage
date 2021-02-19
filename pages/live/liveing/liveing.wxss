@@ -1,0 +1,5 @@
+/* pages/live/liveing/liveing.wxss */
+.liveling-content{
+  padding: 10rpx 30rpx;
+  background-color: #fff;
+}

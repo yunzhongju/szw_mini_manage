@@ -1,0 +1,15 @@
+@import "../../../utils/css/common.wxss";
+.banner {
+    width: 360rpx;
+    height: 266rpx;
+    margin: 99rpx auto 82rpx;
+}
+
+.title {
+    font-size: 28rpx;
+    width: 70%;
+    margin: 0 auto;
+    /* line-height: 10px; */
+    color: #666;
+    text-align: center;
+}

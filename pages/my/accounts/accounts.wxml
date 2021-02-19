@@ -1,0 +1,128 @@
+<view 
+	wx:if="{{audit_NoPass&&audit_desc}}" 
+	class="audit flex-con align-items-center flex-con-center">
+	<image class="icon_markWhite" src="/images/icon_markWhite.png" />{{audit_desc}}
+</view>
+<!-- <image class="banner" src="/images/5.jpg" /> -->
+<view class="bg-white RT_content">
+	<view class="clearfix inputBox">
+		<view class="float-l input_left">经办人</view>
+		<input class="float-l input_right" type="text" placeholder-class="phcolor" placeholder="输入经办人" bindinput="user_name"
+			value="{{user_name}}" />
+	</view>
+	<view class="clearfix inputBox">
+		<view class="float-l input_left">联系电话</view>
+		<input class="float-l input_right" type="number" maxlength="11" placeholder-class="phcolor" placeholder="输入联系电话"
+			value="{{phone}}" bindinput="phone" />
+	</view>
+
+	<view class="clearfix inputBox iconBox">
+		<view class="float-l input_left">选择地址</view>
+		<view class="float-l input_right ellipsis" bindtap="TaptoSwitch_position">{{addressCode}}</view>
+		<image class="icon_mark" bindtap="toggleDialog" src="/images/icon_mark.png" />
+	</view>
+	<view class="clearfix inputBox">
+		<view class="float-l input_left">详细地址</view>
+		<input class="float-l input_right" type="text" placeholder-class="phcolor" placeholder="输入详细地址"
+			value="{{community_title}}" bindinput="community_title" />
+	</view>
+	<!-- <view class="clearfix inputBox">
+		<view class="float-l input_left">地图位置</view>
+		<view class="float-l input_right ellipsis" bindtap="address">{{address||"选择地图位置"}}</view>
+	</view> -->
+	<view class="clearfixs add_imgBox iconBox">
+		<view class="float-l input_left">单位证照</view>
+		<!-- <view class=" input_right"><image class="add_img01" bindtap="upImg" src="{{supporting_documents||'/images/add_img01.png'}}" /></view> -->
+		<view class="IDcard">
+			<!-- 上传反面 -->
+			<view class="binxdzm" data-type="licence" bindtap="upImg">
+				<view class="pushcard">
+					<view class="addl">+</view>
+				</view>
+				<view class="titex">上传单位证照</view>
+			</view>
+			<!-- 显示图片 -->
+			<image wx:if="{{supporting_documents_br}}" class="cardZM" src="{{supporting_documents}}"></image>
+			<view wx:if="{{supporting_documents_br}}" class="rebx" bindtap="rompost" data-type="licence">X</view>
+			<view class="prog" wx:if="{{danwpers}}">
+				<progress percent="{{danwper}}" color="#10AEFF" active stroke-width="3"  />
+			</view>
+		</view>
+	</view>
+	<!-- 身份证召见 -->
+	<view class="incoar">
+		<view class="incleft input_left float-l">身份证上传</view>
+		<view class="inclerthg">
+			<view class="IDcard">
+				<!-- 上传正面 -->
+				<view class="binxdzm" bindtap="upImg" data-type="positive">
+					<view class="pushcard">
+						<view class="addl">+</view>
+					</view>
+					<view class="titex">上传身份证正面</view>
+				</view>
+				<!-- 显示图片 -->
+				<image wx:if="{{positivebr}}" class="cardZM" src="{{positives}}"></image>
+				<view wx:if="{{positivebr}}" class="rebx" bindtap="rompost" data-type="positive">X</view>
+				<view class="prog" wx:if="{{positivebrs}}">
+					<progress percent="{{positivejd}}" color="#10AEFF" active stroke-width="3" />
+				</view>
+			</view> <!-- 反面 -->
+			<view class="IDcard">
+				<!-- 上传反面 -->
+				<view class="binxdzm" data-type="back" bindtap="upImg">
+					<view class="pushcard">
+						<view class="addl">+</view>
+					</view>
+					<view class="titex">上传身份证反面</view>
+				</view>
+				<!-- 显示图片 -->
+				<image wx:if="{{backbr}}" class="cardZM" src="{{backs}}"></image>
+				<view wx:if="{{backbr}}" class="rebx" bindtap="rompost" data-type="back">X</view>
+				<view class="prog" wx:if="{{backbrs}}">
+					<progress percent="{{backjd}}" color="#10AEFF" active stroke-width="3" />
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+</view>
+<view class="phcat">
+	<!-- <view bindtap="checkboxChange" class="sdijsiof">{{checked?"√":""}}</view> -->
+	<radio checked='{{checked}}' id="radios" bindtap='checkboxChange'></radio>
+	<view class="oks">我已阅读并同意 <navigator open-type="navigate" hover-class="none" url="/pages/my/agreement/agreement"><text
+				bindtap="goxy" class="xsxxtt">《社区发展治理用户协议》</text> </navigator>
+	</view>
+</view>
+<view class="publishBtn" bindtap="register">提交</view>
+<!-- 弹出框 -->
+<view class="dialog {{showDialog ?'show' : 'hidden' }}" catchtouchmove='true'>
+	<view class="dialog_bg" bindtap="toggleDialog"></view>
+	<view class="dialog_con">
+		<image class="icon_close dialog_close" bindtap="toggleDialog" src="/images/icon_close.png" />
+		<view class="dialog_con_title">找不到想要的街道？</view>
+		<image class="dialog_con_img img_Contact" src="/images/img_Contact.png" />
+		<view class="dialog_con_tip">联系我们的客服</view>
+		<view class="dialog_con_tel">联系电话：{{Csinform?Csinform:'18280109274'}}</view>
+		<view class="dialog_con_sure" bindtap="toggleDialog">确定</view>
+	</view>
+</view>
+
+
+<van-popup
+  show="{{ showPopup }}"
+  position="bottom"
+  custom-style="height: 50%;"
+  bind:close="onPopupClose"
+>
+  <van-picker
+    columns="{{ columns }}"
+		show-toolbar
+		loading="{{loading}}"
+		value-key="orgname"
+    bind:cancel="onPickerCancel"
+    bind:confirm="onPickerConfirm"
+    bind:change="onPickerChange" 
+  />
+</van-popup>

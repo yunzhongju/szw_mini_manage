@@ -1,0 +1,90 @@
+@import "../../../utils/css/common.wxss";
+
+.set-color{
+    color: #aca8a4;
+}
+.marg-top{
+    margin-top: 40rpx;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.myPosition {
+    height: 120rpx;
+    padding: 0 32rpx;
+    font-size: 28rpx;
+}
+
+.icon_refresh {
+    float: right;
+}
+
+.CB_title01 {
+    font-size: 16px;
+    color: #000;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-weight: 500;
+}
+
+.commonlyUsedBox {
+    padding: 20rpx 0 28rpx;
+}
+
+.commonlyUsedBox view {
+    font-size: 28rpx;
+    padding: 20rpx 22rpx;
+    background-color: #F2F2F2;
+}
+
+.commonlyUsedBox>view:nth-child(1) {
+    margin-right: 32rpx;
+}
+
+
+/* 选择位置 */
+
+.choosewrap {
+    padding-bottom: 80rpx;
+}
+
+.chooseBox {
+    margin: 12rpx 0 80rpx;
+}
+
+.chooseBox .section {
+    display: inline-block;
+    border: 1px solid #979797;
+    padding: 0 13rpx 0 32rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin: 20rpx 40rpx 0 0;
+}
+
+.chooseBox .section .picker {
+    margin-right: 5rpx;
+}
+
+.chooseBox .section .icon_xiala {
+    margin-top: 23.5rpx;
+}
+
+.chooseBox .section.active {
+    color: #E43E2C;
+    border: 1px solid #E43E2C;
+}
+
+.sureBtn {
+    width: 320rpx;
+    height: 90rpx;
+    text-align: center;
+    line-height: 90rpx;
+    border-radius: 4rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #E43E2C;
+    margin: 0 auto;
+		
+		/* margin-top: 30rpx; */
+}

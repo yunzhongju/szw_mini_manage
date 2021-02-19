@@ -1,0 +1,104 @@
+<!-- 评论 -->
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="bg-white CommentsBox">
+	<view
+	 class="CB_con"
+	 wx:for="{{commentslist}}"
+	 wx:for-item="commentslist"
+	 wx:key="index"
+	>
+		<view class="CB_avatar">
+			<image class="videolistLogo" src="{{commentslist.headImage}}" />
+		</view>
+		<view class="CB_text">
+			<view class="clearfix CBT_01">
+				<text>{{commentslist.userName}}</text>
+				<view class="float-r CBT_01_img flex-con align-items-center">
+					<image wx:if="{{wxUserInfo.avatarUrl&&wxUserInfo.avatarUrl!=''}}" bindtap="{{commentslist.isPraised?'TapCommentCancenl':'TapCommentPraise'}}" data-id="{{commentslist.id}}" data-byUserId="{{commentslist.userId}}" class="icon_Tags" src="/images/icon_Tags0{{commentslist.isPraised?'2':'1'}}.png"/>
+					<button wx:else class="getUserInfoStyle icon_Tags" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+						<image class="icon_Tags" src="/images/icon_Tags0{{commentslist.isPraised?'2':'1'}}.png"/>
+					</button>
+					{{commentslist.likeNumber}}
+				</view>
+			</view>
+			<view class="CBT_02">
+				{{commentslist.content}}
+			</view>
+			<view class="CBT_03">
+				{{filter.dateFormate(commentslist.addTime)}}
+				<text wx:if="{{wxUserInfo.avatarUrl&&wxUserInfo.avatarUrl!=''}}" bindtap="TapReply" data-id="{{commentslist.id}}" data-uid="{{commentslist.userId}}" data-parent-id="{{commentslist.id}}" >回复TA</text>
+				<button wx:else class="getUserInfoStyle inline CBT_03" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+					<text>回复TA</text>
+				</button>
+			</view>
+			<view class="CB_con_next" wx:if="{{commentslist.reply&&commentslist.reply.length!=0}}">
+				<view
+				 class="CB_con"
+				 wx:for="{{commentslist.reply}}"
+				 wx:for-item="item"
+				 wx:key="index"
+				>
+					<view class="CB_avatar">
+						<image class="videolistLogo" src="{{item.headImage}}" />
+					</view>
+					<view class="CB_text">
+						<view class="clearfix CBT_01">
+							<text>{{item.userName}}</text>
+							<view class="float-r CBT_01_img flex-con align-items-center">
+								<image wx:if="{{wxUserInfo.avatarUrl&&wxUserInfo.avatarUrl!=''}}" bindtap="{{item.isPraised?'TapCommentCancenl':'TapCommentPraise'}}" data-id="{{item.id}}" class="icon_Tags" data-byUserId="{{item.userId}}" src="/images/icon_Tags0{{item.isPraised?'2':'1'}}.png"/>
+								<button wx:else class="getUserInfoStyle icon_Tags" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+									<image class="icon_Tags" src="/images/icon_Tags0{{item.isPraised?'2':'1'}}.png"/>
+								</button>
+								{{item.likeNumber}}
+							</view>
+						</view>
+						<view wx:if="{{!item.byUserId}}" class="CBT_02">
+							{{item.content}}
+						</view>
+						<view wx:else class="CBT_02">
+							回复{{item.byUserName}}:{{item.content}}
+						</view>
+						<view class="CBT_03">
+							{{filter.dateFormate(item.addTime)}}
+							<text wx:if="{{wxUserInfo.avatarUrl&&wxUserInfo.avatarUrl!=''}}" bindtap="TapReply" 
+							data-id="{{item.id}}" 
+							data-uid="{{item.userId}}" 
+							data-parent-id="{{commentslist.id}}">回复TA</text>
+							<button wx:else class="getUserInfoStyle inline CBT_03" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+								<text>回复TA</text>
+							</button>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="clearfix spacing" />
+<view class="clearfix bg-white publishBox flex-con align-items-center" style="bottom:{{sendCommentsConHeight}}rpx">
+	<image class="icon_editor" src="/images/icon_editor.png" />
+	<input wx:if="{{wxUserInfo.avatarUrl&&wxUserInfo.avatarUrl!=''}}" class="PB_input" bindconfirm="sendCommentsCon" confirm-type="send" placeholder="说点什么吧" value="{{sendCommentsConValue}}" bindblur="bindblurConFun" bindfocus="bindfocusConFun"/>
+	<button wx:else class="getUserInfoStyle getUserInfoStyle_PBinput" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">说点什么吧</button>
+		
+	<view class="float-l PB_Icon02 flex-con align-items-center">
+		{{pariseNum}}
+		<image wx:if="{{wxUserInfo.avatarUrl&&wxUserInfo.avatarUrl!=''}}" bindtap="{{isPraised?'TapCommentCancenlCon':'TapCommentPraiseCon'}}" class="ml19 icon_TagsBig" src="/images/icon_TagsBig0{{isPraised?'2':'1'}}.png" />
+		<button wx:else class="getUserInfoStyle ml19 icon_TagsBig" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+			<image class="icon_TagsBig" src="/images/icon_TagsBig0{{isPraised?'2':'1'}}.png" />
+		</button>
+	</view>
+</view>
+<input
+ class="comments_input {{comments_input?'show':'hidden'}}"
+ focus="{{comments_input}}"
+ bindblur="bindblurFun"
+ bindconfirm="sendComments"
+ confirm-type="send"
+ placeholder="回复Ta"
+ value="{{sendCommentsValue}}"
+ bindfocus="bindfocusFun"
+ adjust-position="{{false}}"
+ style="bottom:{{sendCommentsHeight}}rpx"
+/>
+

@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "直播预约",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f0f0f2",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "reservationItem":"/components/reservationItem/reservationItem",
+    "van-divider": "@vant/weapp/divider/index"
+  }
+}

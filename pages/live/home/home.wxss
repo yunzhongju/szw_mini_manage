@@ -1,0 +1,36 @@
+/* pages/live/home/home.wxss */
+.live-home{
+  padding: 30rpx 30rpx;
+  background-color: #fff;
+}
+.show-add-live{
+  position: fixed;
+  right: 20rpx;
+  bottom: 50rpx;
+}
+.content-back{
+  position: relative;
+  width: 100%;
+}
+.my-tab{
+  position: absolute;
+  top: 10rpx;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+.isFixed{
+  position: fixed;
+  top: 0;
+  left: 20rpx;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
+}
+.helper {
+  position: fixed;
+  top: 500rpx;
+  right: -40rpx;
+  opacity: ;
+}

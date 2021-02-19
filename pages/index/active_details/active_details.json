@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "投票详情",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh":false,
+  "usingComponents": {
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-loading": "@vant/weapp/loading/index"
+  }
+}

@@ -1,0 +1,9 @@
+/* pages/index/helper/helper.wxss */
+.show-img {
+  padding: 10rpx 30rpx;
+  border-radius: 20rpx;
+}
+
+.show-img image {
+  border-radius: 20rpx;
+}

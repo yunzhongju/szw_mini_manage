@@ -1,0 +1,7 @@
+<image class="banner" src="/images/img_Contact02.png" />
+<view class="title">审核通过，请使用电脑进行管理</view>
+<view class="container bg-white">
+    <view class="box">地址<text class="float-r color02 box1 ellipsis">http://47.111.226.60:4440/index.html</text></view>
+    <view class="box">登录账号<text class="float-r color02">{{phone}}</text></view>
+    <view class="box">登录密码<text class="float-r color02">123456，请及时修改密码</text></view>
+</view>

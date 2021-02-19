@@ -1,0 +1,378 @@
+<nav-bar></nav-bar>
+<view class="bg-white clearfix bar-list flex-con flex-con-start align-items-center">
+	<view class="flex-1 barBox" bindtap="switchBar" data-pageType="1">
+		<text class="bar {{pageType==1?'active':''}}">推荐</text>
+	</view>
+	<view class="flex-1 barBox" bindtap="switchBar" data-pageType="2">
+		<text class="bar {{pageType==2?'active':''}}">党建引领</text>
+	</view>
+	<view class="flex-1 barBox {{is_video==0?'hidden':''}}" bindtap="switchBar" data-pageType="3">
+		<text class="bar {{pageType==3?'active':''}}">视频</text>
+	</view>
+	<!-- 新增投票栏目 -->
+	<view class="flex-1 barBox" bindtap="switchBar" data-pageType="5">
+		<text class="bar {{pageType==5?'active':''}}">投票</text>
+	</view>
+	<view class="flex-1 barBox ellipsis" bindtap="switchBar" data-pageType="4">
+		<text wx:if="{{areaName}}" class="bar {{pageType==4?'active':''}}">{{areaName}}</text>
+	</view>
+</view>
+<!-- 推荐 -->
+<view wx:if="{{pageType==1}}" class="container contentBox01">
+	<swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular='true'>
+		<swiper-item wx:for="{{bannerList}}" wx:for-item="item" wx:key="*this" bindtap="TaptoUrl" data-url="{{item.link}}">
+			<view>
+				<image src="{{item.imagePath}}" style="width:100%;" />
+			</view>
+		</swiper-item>
+	</swiper>
+		<view class="bg-white newlistBox">
+		<view class="clearfix flex-con flex-con-start newlist" wx:for="{{newlist}}" wx:for-item="newlist" wx:key="index" bindtap="TaptoNews_details" data-id="{{newlist.id}}">
+			<view class="newlistLeft">
+				<view class='title text_ellipsis_two'>{{newlist.title}}</view>
+				<view class='clearfix tip'>
+					<view class="float-l tipLeft flex-con align-items-center">
+						<image class="pageViews" src="/images/pageViews.png" />
+						{{newlist.readNumber}}人浏览
+					</view>
+					<view 
+						style="line-height: 30rpx;"
+						class="float-r NewTipRight {{newlist.hot_str=='热门'?'NewTipRight02':'NewTipRight01'}}">
+						<!-- {{newlist.hot_str}} -->
+						推荐
+					</view>
+				</view>
+			</view>
+			<image  class="newlistLogo" mode="aspectFill" src="{{newlist.imagePath}}"></image>
+		</view>
+	</view>
+	<view class="bg-white projectsListBox">
+		<block wx:if="{{projectsList.length>2}}">
+			<view class="title">精选专题</view>
+			<swiper class="pLBSwiper" display-multiple-items="3">
+				<swiper-item class="pLBitem" wx:for="{{projectsList}}" wx:for-item="item" wx:key="i" bindtap="TaptoProjects_details" data-id="{{item.id}}">
+					<view class="pLBImg flex-con flex-con-center align-items-center">
+						<text class="pLBText">{{item.title||""}}</text>
+						<image src="{{item.image_path}}" />
+					</view>
+				</swiper-item>
+				<swiper-item class="pLBitem" bindtap="TaptoProjects">
+					<view class="pLBImgAll flex-con flex-con-center align-items-center">
+						<image src="/images/icon_all.png" />
+					</view>
+				</swiper-item>
+			</swiper>
+		</block>
+		<view class="clearfix flex-con flex-con-start newlist" wx:for="{{noRecommentNews}}" wx:for-item="newlist" wx:key="index" bindtap="TaptoNews_details" data-id="{{newlist.id}}">
+			<view class="newlistLeft">
+				<view class='title text_ellipsis_two'>{{newlist.title}}</view>
+				<view class='clearfix tip'>
+					<view class="float-l tipLeft flex-con align-items-center">
+						<image class="pageViews" src="/images/pageViews.png" />
+						{{newlist.readNumber}}人浏览
+					</view>
+					<view wx:if="{{newlist.hot_str}}" class="float-r NewTipRight {{newlist.hot_str=='热门'?'NewTipRight02':'NewTipRight01'}}">
+						{{newlist.hot_str}}
+					</view>
+				</view>
+			</view>
+			<image wx:if="{{newlist.type==1}}" class="newlistLogo" mode="aspectFill" src="{{newlist.imagePath}}"></image>
+			<view wx:else class="newlistLogo icon_playBox">
+				<image class="newlistLogo" mode="aspectFill" src="{{newlist.imagePath}}"></image>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 党建 -->
+<view wx:if="{{pageType==2}}" class="container contentBox01">
+	<view class="bg-white tab-title">
+		<view class="tab-item tab-item1" bindtap="tabBar" data-index="1">
+			<text class="title {{dangjianIndex == 1 ? 'clicked':''}}">智慧党建</text>
+		</view>
+		<view class="tab-item tab-item2" bindtap="tabBar" data-index="2">
+			<text class="title {{dangjianIndex == 2 ? 'clicked':''}}">党群空间</text>
+		</view>
+		<view class="tab-item tab-item3" bindtap="tabBar" data-index="3">
+			<text class="title {{dangjianIndex == 3 ? 'clicked':''}}">党建创新</text>
+		</view>
+		<view class="tab-item tab-item4" bindtap="tabBar" data-index="4">
+			<text class="title {{dangjianIndex == 4 ? 'clicked':''}}">党建活动</text>
+		</view>
+	</view>
+	<view class="zhdj-box" wx:if="{{dangjianIndex == 1}}">
+		<view class="padding-16-20 dj-swiper-box">
+			<swiper class="dj-swiper" autoplay="true" interval="3000" duration="1000" circular='true'>
+				<swiper-item>
+					<image src="https://www.quweiquwei.com:5743/images/social_pic/banner_pic.jpg" alt=""></image>
+				</swiper-item>
+			</swiper>
+		</view>
+		<view class="bg-white padding-0-20 list-boxs">
+			<view wx:for="{{columnList}}" wx:key="index" bindtap="ColPageToArticleList" data-url="{{item.channelIcon}}" data-name="{{item.name}}" data-channelid="{{item.channelid}}" class="padding-24-30 list-items flex-con flex-con-between align-items-center">
+				<view class="left-title flex-1 flex-con flex-col">
+					<text class="top mb14 ellipsis">{{item.name}}</text>
+					<text class="bottom text_ellipsis_two">{{item.summary}}</text>
+				</view>
+				<view class="right-pic">
+					<image src="{{item.channelIcon}}" />
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="dqkj-box padding-0-30" wx:if="{{dangjianIndex != 1}}">
+		<view wx:for="{{articleList}}" wx:key="index" class="dqkj-boxs bg-white mt_20">
+			<view bindtap="pageToArticleDetail" data-articleid="{{item.id}}" class="item-pic-box flex-con flex-col flex-con-end">
+				<image class="bg-pic" src="{{item.imagePath}}" mode="aspectFill"></image>
+				<view class="item-title">{{item.title}}</view>
+			</view>
+			<view class="bottom-msg padding-0-24 flex-con flex-con-between align-items-center">
+				<view class="left flex-con align-items-center">
+					<!-- <image class="icon" src="{{item.imagePath}}" lazy-load="true" mode="aspectFill"></image> -->
+					<image class="pageViews" src="/images/pageViews.png" />
+					<text class="persons" style="margin-left: 7rpx;">{{item.readNumber}}人浏览</text>
+				</view>
+				<view class="right-share flex-con align-items-center">
+					<button class="article-share-btn" open-type="share" data-name="articleshare" data-articeleid="{{item.id}}" data-title="{{item.title}}" data-url="{{item.imagePath}}">
+						<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/weChat_share.png" lazy-load="true"></image>
+					</button>
+					<!-- <image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/friend_circle_share.png" lazy-load="true"></image> -->
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- <view class="dqkj-box padding-0-30" wx:if="{{dangjianIndex == 3}}">
+								<view class="dqkj-boxs bg-white mt_20">
+												<view class="item-pic-box flex-con flex-col flex-con-end">
+																<view class="item-title">大合仓商圈党建模式</view>
+												</view>
+												<view class="bottom-msg padding-0-24 flex-con flex-con-between align-items-center">
+																<view class="left flex-con align-items-center">
+																				<image class="icon" src="/images/1.jpg" lazy-load="{{true}}"></image>
+																				<text class="persons">512人浏览</text>
+																</view>
+																<view class="right-share flex-con align-items-center">
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/weChat_share.png" lazy-load="{{true}}"></image>
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/friend_circle_share.png" lazy-load="{{true}}"></image>
+																</view>
+												</view>
+								</view>
+								<view class="dqkj-boxs bg-white mt_20">
+												<view class="item-pic-box flex-con flex-col flex-con-end">
+																<view class="item-title">国际桐梓林 成都老外街</view>
+												</view>
+												<view class="bottom-msg padding-0-24 flex-con flex-con-between align-items-center">
+																<view class="left flex-con align-items-center">
+																				<image class="icon" src="/images/1.jpg" lazy-load="{{true}}"></image>
+																				<text class="persons">512人浏览</text>
+																</view>
+																<view class="right-share flex-con align-items-center">
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/weChat_share.png" lazy-load="{{true}}"></image>
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/friend_circle_share.png" lazy-load="{{true}}"></image>
+																</view>
+												</view>
+								</view>
+				</view>
+				<view class="dqkj-box padding-0-30" wx:if="{{dangjianIndex == 4}}">
+								<view class="dqkj-boxs bg-white mt_20">
+												<view class="item-pic-box flex-con flex-col flex-con-end">
+																<view class="item-title">四川服装大会（连续十年）</view>
+												</view>
+												<view class="bottom-msg padding-0-24 flex-con flex-con-between align-items-center">
+																<view class="left flex-con align-items-center">
+																				<image class="icon" src="/images/1.jpg" lazy-load="{{true}}"></image>
+																				<text class="persons">512人浏览</text>
+																</view>
+																<view class="right-share flex-con align-items-center">
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/weChat_share.png" lazy-load="{{true}}"></image>
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/friend_circle_share.png" lazy-load="{{true}}"></image>
+																</view>
+												</view>
+								</view>
+								<view class="dqkj-boxs bg-white mt_20">
+												<view class="item-pic-box flex-con flex-col flex-con-end">
+																<view class="item-title">国际桐梓林 成都老外街</view>
+												</view>
+												<view class="bottom-msg padding-0-24 flex-con flex-con-between align-items-center">
+																<view class="left flex-con align-items-center">
+																				<image class="icon" src="/images/1.jpg" lazy-load="{{true}}"></image>
+																				<text class="persons">512人浏览</text>
+																</view>
+																<view class="right-share flex-con align-items-center">
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/weChat_share.png" lazy-load="{{true}}"></image>
+																				<image class="icon" src="https://www.quweiquwei.com:5743/images/social_pic/friend_circle_share.png" lazy-load="{{true}}"></image>
+																</view>
+												</view>
+								</view>
+				</view> -->
+	<!-- 机器人图标 -->
+	<view bindtap="pageToTobot" animation="{{animationTobot}}" class="contact-icon"></view>
+</view>
+<!-- 视频 -->
+<view wx:if="{{pageType==3}}" class="container">
+	<view class="bg-white videolistBox" wx:for="{{videolist}}" wx:for-item="videolist" wx:key="index">
+		<view class="videolistLogoBox icon_playBox">
+			<!-- <video id="myVideo{{videolist.id}}" class="videolistLogo" src="{{videolist.file_path}}" /> -->
+			<video 
+				class="videolistLogo" 
+				id="myVideo{{index}}" 
+				src='{{videolist.filePath}}' 
+				controls="{{controls}}" 
+				custom-cache="{{cache}}" 
+				object-fit='cover' 
+				show-center-play-btn="{{playBtn}}" 
+				autoplay='{{true}}' 
+				wx:if='{{index==indexCurrent}}'></video>
+			<block wx:if='{{index!=indexCurrent}}'>
+				<image class='videolistLogo' src='{{videolist.imagePath}}'></image>
+				<image data-index='{{index}}' bindtap='videoPlay' class="icon_playBig" src="/images/icon_play.png"></image>
+			</block>
+			<view class="VL_MSK flex-con align-items-center" wx:if='{{index!=indexCurrent}}'>
+				<text class="text_ellipsis_two">{{videolist.title}}</text>
+			</view>
+		</view>
+		<view class="VL_info flex-con align-items-center">
+			<view class="flex-1 tipLeft flex-con align-items-center">
+				<image class="pageViews" src="/images/pageViews.png" />
+				<!-- <image class="pageViews" src="{{videolist.imagePath}}" /> -->
+				{{videolist.readNumber>9999?'9999+':videolist.readNumber}}人浏览
+			</view>
+			<view class="flex-1 VLI_right">
+				<view class="float-r icon_WeChatBox">
+					<image class="icon_WeChat" src="/images/icon_WeChat.png" />
+					<button class="shareBtn" open-type="share" data-name="pageShare" data-id="{{videolist.id}}" data-title="{{videolist.title}}">
+						点击分享
+					</button>
+				</view>
+				<!-- <image class="float-r icon_Circle" src="/images/icon_Circle.png" /> -->
+				<view 
+					bindtap="TaptoVideo_details"
+					data-id="{{videolist.id}}"
+					class="float-r icon_messageBox flex-con align-items-center">
+					{{videolist.commentNumber}}
+					<image class="icon_message" src="/images/icon_message.png" />
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!--投票 -->
+<view wx:if="{{pageType==5}}" class="container">
+	<view class="bg-white videolistBox" wx:for="{{activeList}}" wx:for-item="item" wx:key="index" bindtap="TaptoActive_details" data-id="{{item.id}}">
+		<view class="videolistLogoBox icon_playBox">
+			<block wx:if='{{index!=indexCurrent}}'>
+				<image 
+					class='videolistLogo' 
+					mode="aspectFit" 
+					src='{{item.coverImg}}'></image>
+				<view class="{{item.name=='已开始'?'status':'status1'}}">
+					<text>{{item.name}}</text>
+				</view>
+			</block>
+			<view class="VL_MSK1 flex-con align-items-center" wx:if='{{index!=indexCurrent}}'>
+				<text class="text_ellipsis_one">{{item.title}}</text>
+			</view>
+		</view>
+		<view class="VL_info flex-con align-items-center">
+			<view class="flex-1 tipLeft flex-con align-items-center">
+				<!-- <image class="pageViews" src="/images/pageViews.png" /> -->
+				<!-- <image class="pageViews" src="{{videolist.imagePath}}" /> -->
+				<!-- {{item.joiners}}人参与 -->
+			</view>
+			<view class="flex-1 VLI_right">
+				<view class="float-r icon_WeChatBox">
+					<image class="icon_WeChat" src="/images/icon_WeChat.png" />
+					<button class="shareBtn" open-type="share" data-name="pageShare" data-id="{{item.id}}" data-title="{{item.title}}">
+						点击分享
+					</button>
+				</view>
+				<!-- <image class="float-r icon_Circle" src="/images/icon_Circle.png" /> -->
+				<view 
+					class="float-r icon_messageBox flex-con align-items-center"
+					style="letter-spacing:5rpx;">
+					<!-- 票数{{item.sumActivityTicket}} -->
+					浏览数: {{item.readNumber+(item.vmRead?item.vmRead:0)}}
+					<!-- <image bindtap="TaptoVideo_details" data-id="{{item.id}}" class="icon_message" src="/images/icon_message.png" /> -->
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- <view wx:if="{{pageType==5}}" class="container">
+	<view class="active_list_box" wx:for="{{activeList}}" wx:for-item='item'>
+		<view class="active_list_item_box" bindtap="TaptoActive_details" data-id="{{item.id}}" >
+			<view class="item_img"><image src="{{item.coverImg}}"/></view>
+			<view class="item_bottom">
+				<view class="left">
+					<text class="item_title">{{item.title}}</text>
+					<view>
+						<text>参与{{item.joiners}}</text>
+						<text class="tickle">票数{{item.sumActivityTicket}}</text>
+					</view>
+				</view>
+				<view class="right">
+					<view class="right_img"><image src="../../../images/active_load.svg"/></view>
+					<text>{{item.name}}</text>
+				</view>
+			</view>
+		</view>
+		<view class="divider"></view>
+	</view>
+</view> -->
+<!-- 区域 -->
+<view wx:if="{{pageType==4}}" class="container contentBox01">
+	<!-- <view class="area" bindtap="TaptoSwitch_position" data-id="{{communityDetails.id}}"> -->
+	<view class="area" data-id="{{communityDetails.id}}">
+		<image mode="aspectFill" src="{{communityDetails.image_path||'/images/5.jpg'}}" />
+		<view class="areaInfo">
+			<view class="icon_Locate flex-con align-items-center">
+				{{communityDetails.title?communityDetails.title:title}}
+				<image src="/images/icon_Locate.png" />
+			</view>
+			<view class="areaInfo02">{{weatherData.wendu}}/{{weatherData.weatherDesc}}</view>
+			<view class="areaInfo03">{{weatherData.wind}}</view>
+			<view class="areaInfo04">
+				<text class="float-l">封面摄影 {{communityDetails.image_name||""}}</text>
+				<text class="float-r">{{communityDetails.last_update_time_str||""}}</text>
+			</view>
+		</view>
+	</view>
+	<!-- <view class="bg-white localCommunity">
+		<view class="LC_title">社区资讯<text class="LC_title_right float-r color02" bindtap="TaptoAll_shequ">更多</text></view>
+		<view class="clearfix LC_imgBox">
+			<view class="float-l LCIB" wx:for="{{getListByCode}}" wx:for-item="item" bindtap="TaptoCommunity_details" data-id="{{item.id}}">
+				<image class="LCIB_img" src="{{item.image_path}}" />
+				<view class="LCIB_text ellipsis">{{item.title}}</view>
+			</view>
+		</view>
+	</view> -->
+	<view class="bg-white newlistBox">
+		<!-- <view class="area_title">社区资讯</view> -->
+		<view class="clearfix flex-con flex-con-start newlist" wx:for="{{AreaNewlist.length>0?AreaNewlist:newlist}}" wx:for-item="newlist" wx:key="index" bindtap="TaptoNews_details" data-id="{{newlist.id}}">
+			<view class="newlistLeft">
+				<view class='title text_ellipsis_two'>{{newlist.title}}</view>
+				<view class='clearfix tip'>
+					<view class="float-l tipLeft flex-con align-items-center">
+						<image class="pageViews" src="/images/pageViews.png" />
+						{{newlist.readNumber}}人浏览
+					</view>
+					<!-- <view wx:if="{{newlist.hot_str}}" class="float-r NewTipRight {{newlist.hot_str=='热门'?'NewTipRight02':'NewTipRight01'}}">
+						{{newlist.hot_str}}
+					</view> -->
+				</view>
+			</view>
+			<image wx:if="{{newlist.type==1}}" class="newlistLogo" mode="aspectFill" src="{{newlist.imagePath}}"></image>
+			<view wx:else class="newlistLogo icon_playBox">
+				<image class="newlistLogo" mode="aspectFill" src="{{newlist.imagePath}}"></image>
+				<!-- <video class="newlistLogo" src="{{newlist.file_path}}" controls="{{false}}" /> -->
+				<!-- <image class="icon_play" src="/images/icon_play.png"></image> -->
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 投票引导 -->
+<helper 
+	class="helper" 
+	bind:handleToHelper="handleToHelper"
+	wx:if="{{pageType==5}}"></helper>

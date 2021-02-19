@@ -1,0 +1,5 @@
+/* pages/live/reservation/reservation.wxss */
+.reservationItem{
+  padding: 30rpx 30rpx;
+  background-color: #fff;
+}

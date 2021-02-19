@@ -1,0 +1,10 @@
+{
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "管理账户",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "van-picker": "@vant/weapp/picker/index",
+        "van-popup": "@vant/weapp/popup/index"
+    }
+}

@@ -1,0 +1,7 @@
+<view class="clearfix LC_imgBox">
+	<view class="float-l LCIB" wx:for="{{getListByCode}}" wx:for-item="item" bindtap="TaptoCommunity_details" data-id="{{item.id}}">
+		<image class="LCIB_img" src="{{item.image_path}}" />
+		<view class="LCIB_text ellipsis">{{item.title}}</view>
+	</view>
+</view>
+

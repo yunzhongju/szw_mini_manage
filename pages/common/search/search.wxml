@@ -1,0 +1,100 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="bg-white clearfix">
+	<view class="search">
+		<view class="search_arr">
+			<icon class="searchcion" size='20' type='search' />
+			<input
+			 type="text"
+			 placeholder="请输入关键字"
+			 value="{{search_key}}"
+			 bindinput="searchInput"
+			/>
+		</view>
+		<view class='sousuo' bindtap="searchBtn">搜索</view>
+	</view>
+</view>
+<view class="bg-white clearfix bar-list flex-con flex-con-start align-items-center">
+	<view class="flex-1">
+		<text class="bar {{pageType==1?'active':''}}" bindtap="switchBar" data-pageType="1">新闻({{totalNews}})</text>
+	</view>
+	<view class="flex-1">
+		<text class="bar {{pageType==2?'active':''}}" bindtap="switchBar" data-pageType="2">视频({{totalVideo}})</text>
+	</view>
+	<view class="flex-1">
+		<text class="bar {{pageType==3?'active':''}}" bindtap="switchBar" data-pageType="3">话题({{totalVoice}})</text>
+	</view>
+</view>
+<!-- 新闻 -->
+<view wx:if="{{pageType==1}}" class="bg-white newlistBox contentBox01" wx:for="{{newslist}}" wx:for-item="newlist" wx:key="index" bindtap="TaptoNews_details" data-id="{{newlist.id}}">
+	<view class="clearfix flex-con flex-con-start newlist">
+		<view class="flex-1 newlistLeft">
+			<view class='title text_ellipsis_two'>{{newlist.title}}</view>
+			<view class='clearfix tip'>
+				<view class="float-l tipLeft flex-con align-items-center">
+					<image class="pageViews" src="/images/pageViews.png" />
+					{{newlist.readNumber}}人浏览
+				</view>
+			</view>
+		</view>
+		<image class="newlistLogo" mode="aspectFill" src="{{newlist.imagePath}}"/>
+	</view>
+</view>
+<!-- 视频 -->
+<view wx:if="{{pageType==2}}" class="bg-white newlistBox contentBox01" wx:for="{{videolist}}" wx:for-item="item" wx:key="index" bindtap="TaptoVideo_details" data-id="{{item.id}}">
+	<view class="clearfix flex-con flex-con-start newlist">
+		<view class="flex-1 newlistLeft">
+			<view class='title text_ellipsis_two'>{{item.title}}</view>
+			<view class='clearfix tip'>
+				<view class="float-l tipLeft flex-con align-items-center">
+					<image class="pageViews" src="/images/pageViews.png" />
+					{{item.readNumber}}人浏览
+				</view>
+			</view>
+		</view>
+		<view class="newlistLogo icon_playBox">
+			<image class="newlistLogo" mode="aspectFill" src="{{item.imagePath}}"></image>
+			<!-- <video class="newlistLogo" src="{{item.file_path}}" controls="{{false}}" /> -->
+			<image class="icon_play" src="/images/icon_play.png"></image>
+		</view>
+	</view>
+</view>
+
+<!-- 话题 -->
+<view
+ wx:if="{{pageType==3}}"
+ class="bg-white peopleVoiceBox contentBox01"
+ wx:for="{{communitylist}}"
+ wx:for-item="item"
+ wx:key="index"
+ bindtap="TaptoTopic_details" data-id="{{item.id}}"
+>
+	<view class="clearfix PVB_avatarBox">
+		<view class="float-l PVB_avatar">
+			<image class="PVBAImg" src="{{item.headImage}}" />
+			{{item.showName}}
+		</view>
+		<text class="float-r">{{filter.dateFormate(item.addTime)}}</text>
+	</view>
+	<view class="PVB_title text_ellipsis_two">{{item.content}}</view>
+	<view class="PVB_text">
+		{{item.title}}
+	</view>
+	<view class="PVB_iconBox">
+		来自
+		<text class="color03" bindtap="TaptoPeople_voice" data-id="{{item.navigationId}}">{{item.channelName}}</text>
+		<view class="float-r flex-con align-items-center">
+			<image class="pageViews" src="/images/pageViews.png" />
+			{{item.readNumber}}人浏览
+			<image class="icon_message" bindtap="TaptoTopic_details" data-id="{{item.id}}" src="/images/icon_message.png" />
+		</view>
+	</view>
+</view>
+<input
+ class="comments_input {{comments_input?'show':'hidden'}}"
+ focus="{{comments_input}}"
+ bindblur="bindblurFun"
+ bindconfirm="sendComments"
+ confirm-type="send"
+ placeholder="说点什么吧"
+/>
+

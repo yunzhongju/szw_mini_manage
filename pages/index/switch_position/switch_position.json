@@ -1,0 +1,13 @@
+{		
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "切换位置",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+			 "van-field": "@vant/weapp/field/index",
+			 "van-row": "@vant/weapp/row/index",
+			 "van-col": "@vant/weapp/col/index",
+			 "van-popup": "@vant/weapp/popup/index",
+			 "van-picker": "@vant/weapp/picker/index"
+		}
+}

@@ -1,0 +1,8 @@
+<view bindtap="auditStatus" class="bg-white clearfix loginLink flex-con align-items-center">
+	<view class="flex-8">申请社区管理账户</view>
+	<view class="flex-1 getUserInfoCommonBox">
+		<image class="float-r icon_right" src="/images/icon_right.png" />
+	</view>
+</view>
+<!-- <view class="LogOut" bindtap="TapLogOut">退出登录</view> -->
+

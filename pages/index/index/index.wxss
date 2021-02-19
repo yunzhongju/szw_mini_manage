@@ -1,0 +1,631 @@
+@import "../../../utils/css/common.wxss";
+/* tab按钮 */
+
+.marg-top {
+    margin-top: 30rpx !important;
+}
+
+.barBox {
+    width: 25%;
+    height: 72rpx;
+}
+
+.bar-list {
+    width: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    padding: 16rpx 0 0;
+}
+
+.bar {
+    display: inline-block;
+    height: 72rpx;
+    line-height: 72rpx;
+    position: relative;
+    /* max-width: 80%; */
+}
+
+.bar.active {
+    color: #E43E2C;
+}
+
+.bar.active::after {
+    content: "";
+    position: absolute;
+    left: -15%;
+    bottom: 0;
+    width: 130%;
+    height: 6rpx;
+    background-color: #E43E2C;
+    border-radius: 3rpx;
+}
+
+/* 轮播 */
+
+.banner {
+    width: 750rpx;
+    height: 365rpx;
+    padding: 0 13rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.banner image {
+    width: 100%;
+    height: 345rpx;
+}
+
+.banner .wx-swiper-dots.wx-swiper-dots-horizontal {
+    margin-bottom: 2rpx;
+}
+
+.banner .wx-swiper-dot {
+    width: 15rpx;
+    height: 15rpx;
+    display: inline-flex;
+    justify-content: space-between;
+    border-radius: 25rpx;
+}
+
+.banner .wx-swiper-dot::before {
+    content: '';
+    width: 15rpx;
+    height: 15rpx;
+    flex-grow: 2;
+    background: #b7b7b7;
+    border-radius: 25rpx;
+    box-shadow: 0 0 2px rgba(255, 255, 255, .8);
+}
+
+.banner .wx-swiper-dot-active::before {
+    background: #fff;
+    width: 15rpx;
+    display: inline-flex;
+    height: 15rpx;
+    justify-content: flex-start;
+    border-radius: 50%;
+}
+
+/* 新闻 */
+
+.newlistBox {
+    padding: 0 32rpx;
+}
+
+.newlist {
+    padding: 22rpx 0;
+    border-bottom: 1rpx solid #D8D8D8;
+}
+
+.newlistLeft {
+    margin-right: 46rpx;
+    width: 442rpx;
+}
+
+.newlistLeft .title {
+    font-size: 26rpx;
+    height: 68rpx;
+}
+
+.newlistLeft .tip {
+    margin-top: 42rpx;
+}
+
+.tipLeft {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.tipLeft image {
+    display: inline-block;
+    margin-right: 12rpx;
+}
+
+.tab-title {
+    height: 124rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20rpx;
+}
+
+.tab-title .tab-item {
+    width: 169rpx;
+    height: 84rpx;
+    border-radius: 8rpx;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8rpx;
+    overflow: hidden;
+}
+
+.tab-title .tab-item1 {
+    background: url('https://www.quweiquwei.com:5743/images/social_pic/zhihuidangjian.jpg') no-repeat center center;
+}
+
+.tab-title .tab-item2 {
+    background: url('https://www.quweiquwei.com:5743/images/social_pic/dangqunkongjian.jpg') no-repeat center center;
+}
+
+.tab-title .tab-item3 {
+    background: url('https://www.quweiquwei.com:5743/images/social_pic/dnagjianchuangxin.jpg') no-repeat center center;
+}
+
+.tab-title .tab-item4 {
+    background: url('https://www.quweiquwei.com:5743/images/social_pic/dangjianhuodong.jpg') no-repeat center center;
+}
+
+.tab-title .tab-item .title {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 84rpx;
+    font-family: MicrosoftYaHei;
+    background-color: rgba(0, 0, 0, .4);
+    font-size: 30rpx;
+    letter-spacing: 2rpx;
+    color: #fff;
+}
+
+.tab-title .tab-item .clicked {
+    color: #ff0000;
+}
+
+.dj-swiper-box .dj-swiper {
+    width: 710rpx;
+    height: 280rpx;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.dj-swiper-box .dj-swiper image {
+    width: 100%;
+    height: 100%;
+}
+
+.list-boxs {
+    min-height: 100%;
+}
+
+.list-boxs .list-items {
+    border-bottom: 1rpx solid #efefef;
+}
+
+.list-boxs .list-items .left-title .top {
+    letter-spacing: 2rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.list-boxs .list-items .left-title .bottom {
+    font-size: 26rpx;
+    line-height: 34rpx;
+    letter-spacing: 1;
+}
+
+.list-boxs .list-items .right-pic {
+    width: 200rpx;
+    height: 115rpx;
+    margin-left: 60rpx;
+}
+
+.list-boxs .list-items .right-pic>image {
+    width: 100%;
+    height: 100%;
+}
+
+.contact-icon {
+    width: 111rpx;
+    height: 122rpx;
+    position: fixed;
+    bottom: 100rpx;
+    right: 60rpx;
+    z-index: 10;
+    background: url('https://www.quweiquwei.com:5743/images/social_pic/kefu_icon1.png') no-repeat center center;
+    background-size: cover;
+}
+
+.dqkj-boxs .item-pic-box {
+    width: 690rpx;
+    height: 345rpx;
+    /* background: url('https://www.quweiquwei.com:5743/images/social_pic/dqkj_list_pic.jpg') no-repeat center center; */
+    /* background-size: cover; */
+    position: relative;
+}
+
+.dqkj-boxs .item-pic-box .bg-pic {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.dqkj-boxs .item-pic-box .item-title {
+    height: 95rpx;
+    line-height: 95rpx;
+    color: #ffffff;
+    font-size: 26rpx;
+    text-indent: 24rpx;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 1;
+
+}
+
+.dqkj-boxs .bottom-msg {
+    height: 80rpx;
+}
+
+.dqkj-boxs .bottom-msg .left .icon {
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 6rpx;
+}
+
+.dqkj-boxs .bottom-msg .left .persons {
+    font-size: 20rpx;
+    color: #8a8a8a;
+}
+
+.dqkj-boxs .bottom-msg .right-share image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 36rpx;
+}
+
+.article-share-btn {
+    padding: 0;
+    border: 0;
+    background-color: #fff;
+}
+
+.article-share-btn:after {
+    content: "";
+    border: none;
+}
+
+/* 精选专题 */
+
+.projectsListBox {
+    padding: 0rpx 32rpx 0;
+    /* margin: 56rpx auto 20rpx; */
+}
+
+.projectsListBox.title {
+    font-size: 28rpx;
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+
+.pLBitem {
+    padding-right: 20rpx;
+}
+
+.projectsListBox .newlist {
+    margin-top: 20rpx;
+    border-bottom: 1rpx solid #D8D8D8;
+}
+
+.pLBSwiper,
+.pLBImg,
+.pLBImg image,
+.pLBImgAll,
+.pLBImgAll image {
+    height: 180rpx;
+}
+
+.pLBImg,
+.pLBImgAll {
+    border-radius: 4rpx;
+    font-size: 28rpx;
+    color: #fff;
+    float: left;
+}
+
+.pLBImg,
+.pLBImg image {
+    width: 240rpx;
+}
+
+.pLBImgAll,
+.pLBImgAll image {
+    width: 180rpx;
+}
+
+.pLBText {
+    position: absolute;
+    z-index: 1;
+}
+
+.pLBImg::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 240rpx;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+
+/* 视频 */
+
+.videolistBox {
+    margin: 0 32rpx 20rpx;
+}
+
+.videolistLogoBox {
+    position: relative;
+    height: 346rpx;
+}
+
+.videolistLogo {
+    width: 100%;
+    height: 100%;
+}
+
+.VL_MSK {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    height: 96rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+}
+
+.VL_MSK1 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    height: 48rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+}
+
+.VL_info {
+    height: 80rpx;
+    padding: 0 25rpx;
+}
+
+.icon_messageBox {
+    font-size: 20rpx;
+    color: #999;
+}
+
+.icon_messageBox image {
+    display: inline-block;
+    margin-left: 12rpx;
+}
+
+.icon_Circle,
+.icon_WeChatBox {
+    margin-left: 40rpx;
+}
+
+/* 区域 */
+
+.area {
+    position: relative;
+    color: #fff;
+    margin-bottom: 34rpx;
+}
+
+.area,
+.area image {
+    width: 100%;
+    height: 345rpx;
+}
+
+.areaInfo {
+    width: 100%;
+    position: absolute;
+    top: 118rpx;
+    padding: 0 32rpx;
+}
+
+.icon_Locate {
+    font-size: 32rpx;
+}
+
+.icon_Locate image {
+    width: 21rpx;
+    height: 26rpx;
+    margin-left: 17rpx;
+}
+
+.areaInfo02 {
+    font-size: 32rpx;
+    margin: 16rpx 0;
+}
+
+.areaInfo03 {
+    font-size: 28rpx;
+}
+
+.areaInfo04 {
+    font-size: 24rpx;
+    margin-top: 28rpx;
+    color: rgba(255, 255, 255, .8)
+}
+
+/* 本地社区 */
+
+.localCommunity {
+    padding: 0 32rpx;
+}
+
+.LC_title {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-weight: bold;
+}
+
+.LC_title_right {
+    font-size: 24rpx;
+    font-weight: 400;
+}
+
+.LC_imgBox {
+    padding: 20rpx 0;
+}
+
+.LCIB_img {
+    width: 215rpx;
+    height: 161rpx;
+}
+
+.LCIB_text {
+    width: 215rpx;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #333;
+}
+
+.LC_imgBox .LCIB:nth-child(2n) {
+    margin: 0 18rpx;
+}
+
+/* 投票 */
+.divider {
+    height: 26rpx;
+    width: 100%;
+    background-color: #f0f0f2;
+}
+
+.active_list_box {
+    padding-top: 40rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.active_list_box .active_list_item_box {
+    width: 672rpx;
+    padding-bottom: 26rpx;
+    padding-top: 16rpx;
+}
+
+.active_list_box .active_list_item_box .item_bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
+}
+
+.active_list_box .active_list_item_box .item_bottom .left {
+    display: flex;
+    flex-direction: column;
+    width: 400rpx;
+}
+
+.active_list_box .active_list_item_box .item_bottom .left view {
+    height: 74rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.active_list_box .active_list_item_box .item_bottom .left view .tickle {
+    margin-right: 90rpx;
+}
+
+.active_list_box .active_list_item_box .item_bottom .left view text {
+    color: rgba(98, 98, 98, 1);
+    font-size: 24rpx;
+    text-align: left;
+    font-family: PingFangSC-regular;
+}
+
+.active_list_box .active_list_item_box .item_bottom .left .item_title {
+    color: rgba(16, 16, 16, 1);
+    font-size: 24rpx;
+    text-align: left;
+    font-family: PingFangSC-regular;
+    font-weight: 600;
+}
+
+.active_list_box .active_list_item_box .item_img {
+    width: 100%;
+    height: 426rpx;
+}
+
+.active_list_box .active_list_item_box .item_img image {
+    width: 100%;
+    height: 100%;
+}
+
+.active_list_box .active_list_item_box .item_bottom .right {
+    padding-right: 68rpx;
+}
+
+.active_list_box .active_list_item_box .item_bottom .right .right_img {
+    width: 48rpx;
+    height: 48rpx;
+    margin-left: 15rpx;
+    margin-bottom: 20rpx;
+}
+
+.active_list_box .active_list_item_box .item_bottom .right text {
+    color: rgba(244, 69, 5, 1);
+    font-size: 28rpx;
+    text-align: left;
+    font-family: PingFangSC-regular;
+    font-weight: 600;
+}
+
+.active_list_box .active_list_item_box .item_bottom .right .right_img image {
+    width: 100%;
+    height: 100%;
+}
+
+.status {
+    position: absolute;
+    right: 0;
+    top: 20rpx;
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    padding-right: 20rpx;
+    padding-bottom: 20rpx;
+    font-size: 10px;
+}
+
+.status text {
+    background-color: red;
+    padding: 8rpx 20rpx;
+    border-radius: 40rpx;
+
+}
+
+.status1 {
+    position: absolute;
+    right: 0;
+    top: 20rpx;
+    display: flex;
+    justify-content: flex-end;
+    color: black;
+    padding-right: 20rpx;
+    padding-bottom: 20rpx;
+    font-size: 10px;
+}
+
+.status1 text {
+    background-color: #f2f2f2;
+    padding: 8rpx 20rpx;
+    border-radius: 40rpx;
+
+}
+
+.helper {
+    position: fixed;
+    top: 700rpx;
+    right: -40rpx;
+}

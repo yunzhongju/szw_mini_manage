@@ -1,0 +1,4 @@
+<!--components/addLive/addLive.wxml-->
+<view class="addLive" bindtap="handleToCreateLive">
+  <text>+</text>
+</view>

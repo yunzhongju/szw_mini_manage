@@ -1,0 +1,78 @@
+/* components/reservationItem/reservationItem.wxss */
+.content{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+  /* background-color: whitesmoke;
+  padding: 20rpx 0; */
+}
+.show-img{
+  width: 100%;
+  height: 452rpx;
+  position: relative;
+  border-radius: 10rpx;
+
+}
+.yugao{
+  position: absolute;
+  left: 20rpx;
+  bottom: 10rpx;
+  padding: 7rpx 30rpx;
+  background-color:#0181ff;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+.yuyue{
+  position: absolute;
+  right: 0;
+  bottom: 20rpx;
+  background-color: #df0808;
+  padding: 5rpx 50rpx;
+  /* border: 1rpx solid #df0808; */
+  border-radius: 40rpx;
+  color: white;
+}
+.kaibo{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #df0808;
+  padding: 5rpx 50rpx;
+  /* border: 1rpx solid #df0808; */
+  border-radius: 40rpx;
+  color: white;
+}
+.yuyue1{
+  position: absolute;
+  right: 0;
+  color: white;
+  bottom: 20rpx;
+  background-color: #0181ff;
+  padding: 5rpx 50rpx;
+  /* border: 1rpx solid #807979; */
+  border-radius: 40rpx;
+}
+.show-img image{
+  height: 100%; 
+  width: 100%;
+  border-radius: 10rpx;
+
+}
+.title{
+  padding: 20rpx 0;
+  color: rgb(77, 74, 74);
+  font-weight: 600;
+  font-size: 16px;
+}
+.show-bottom{
+  display: flex;
+  font-weight: 12px;
+  color: rgb(116, 112, 112);
+}
+.time{
+  color: red;
+  margin-right: 40rpx;
+}

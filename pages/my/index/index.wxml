@@ -1,0 +1,139 @@
+<!-- 未登录 -->
+<view class="container">
+	<view class="bg-white loginImgBox flex-con align-items-center">
+		<view wx:if="{{wxUserInfo.avatarUrl}}" class="clearfix loginImgwrap flex-con align-items-center">
+			<image class="float-l loginImg" src="{{wxUserInfo.avatarUrl}}" />
+			<text class="float-l">{{wxUserInfo.nickName}}</text>
+			<image class="float-l icon_sex01" src="/images/icon_sex0{{wxUserInfo.gender==1?1:2}}.png" />
+			<!-- <text class="pay-for" bindtap="goToPay">充值</text> -->
+		</view>
+		<view wx:else class="clearfix loginImgwrap loginImgwrap01">
+			<button class="float-l loginImg loginImgwrap getUserInfoStyle" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+				未登录
+			</button>
+			<button class="getUserInfo" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击获取个人信息</button>
+		</view>
+	</view>
+</view>
+<block wx:if="{{!wxUserInfo.avatarUrl}}">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<button class="getUserInfoCommon" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" />
+		<view class="flex-8">我的消息
+			<view wx:if="{{getNoReadNumber}}" class="messageTitle">{{getNoReadNumber}}</view>
+		</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</block>
+<navigator wx:else open-type="navigate" hover-class="none" url="/pages/my/message/message">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<view class="flex-8">我的消息
+			<view wx:if="{{getNoReadNumber}}" class="messageTitle">{{getNoReadNumber}}</view>
+		</view>
+		<view class="flex-1 getUserInfoCommonBox">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</navigator>
+<block wx:if="{{!wxUserInfo.avatarUrl}}">
+	<view class="bg-white clearfix loginLink contentBox01 flex-con align-items-center">
+		<button class="getUserInfoCommon" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" />
+		<view class="flex-8">我发布的</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</block>
+<navigator wx:else open-type="navigate" hover-class="none" url="/pages/my/publish/publish">
+	<view class="bg-white clearfix loginLink contentBox01 flex-con align-items-center">
+		<view class="flex-8">我发布的</view>
+
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</navigator>
+<block wx:if="{{!wxUserInfo.avatarUrl}}">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<button class="getUserInfoCommon" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" />
+		<view class="flex-8">我赞过的</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</block>
+<navigator wx:else open-type="navigate" hover-class="none" url="/pages/my/praise/praise">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<view class="flex-8">我赞过的</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</navigator>
+<block wx:if="{{!wxUserInfo.avatarUrl}}">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<button class="getUserInfoCommon" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" />
+		<view class="flex-8">浏览记录</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</block>
+<navigator wx:else open-type="navigate" hover-class="none" url="/pages/my/visit_record/visit_record">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<view class="flex-8">浏览记录</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</navigator>
+
+
+<!-- <block wx:if="{{!wxUserInfo.avatarUrl}}">
+	<view class="bg-white clearfix loginLink contentBox01 flex-con align-items-center">
+		<button class="getUserInfoCommon" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" />
+		<view class="flex-8">更多功能
+		</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</block> -->
+<block wx:if="{{isphone}}">
+	<view bindtap="auditStatus" class="bg-white clearfix loginLink flex-con align-items-center">
+			<view class="flex-8">申请账户管理</view>
+			<view class="flex-1 getUserInfoCommonBox">
+				<image class="float-r icon_right" src="/images/icon_right.png" />
+			</view>
+		</view>
+</block>
+<block wx:else>
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="pavbut">
+			手机号领取
+		</button>
+		<view class="flex-8">申请账户管理</view>
+		<view class="flex-1 getUserInfoCommonBox">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</block>
+
+<block wx:if="{{!wxUserInfo.avatarUrl}}">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<button class="getUserInfoCommon" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" />
+		<view class="flex-8">我参与的投票</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</block>
+<navigator wx:else open-type="navigate" hover-class="none" url="/pages/my/my_votes/my_votes">
+	<view class="bg-white clearfix loginLink flex-con align-items-center">
+		<view class="flex-8">我参与的投票</view>
+		<view class="flex-1">
+			<image class="float-r icon_right" src="/images/icon_right.png" />
+		</view>
+	</view>
+</navigator>

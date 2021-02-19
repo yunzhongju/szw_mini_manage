@@ -1,0 +1,8 @@
+<view class="search" style="height:{{commonHeadHeight.titleHeight-6}}px;">
+	<view class="search_arr">
+		<icon class="searchcion" size='20' type='search' />
+		<!-- <input type="text" placeholder="请输入关键字" bindfocus="getInput" /> -->
+		<view class="inputStyle" bindtap="getInput">请输入关键字</view>
+	</view>
+</view>
+

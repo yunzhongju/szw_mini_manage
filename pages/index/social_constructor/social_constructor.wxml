@@ -1,0 +1,12 @@
+<view class="article-title flex-con flex-col flex-con-end mb14" style="background:url({{url}}) no-repeat center center;background-size:cover">
+    <view class="title-text ellipsis">{{chname}}</view>
+</view>
+<view class="col-list-box flex-con flex flex-wrap">
+    <view wx:for="{{channelList}}" wx:key="index" bindtap="pageToArticleDetail" data-articleid="{{item.channelid}}" class="item-box flex-con align-items-center flex-con-between">
+        <image class="col-pic" src="{{item.channelIcon}}" alt="" mode=""></image>
+        <view class="msg-box flex-1 ellipsis flex-con flex-col flex-con-center">
+            <text class="title">{{item.name}}</text>
+            <text class="discription">{{item.summary}}</text>
+        </view>
+    </view>
+</view>

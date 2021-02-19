@@ -1,0 +1,64 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="bg-white clearfix bar-list flex-con flex-con-start align-items-center">
+	<view class="flex-1">
+		<text class="bar {{pageType==1?'active':''}}" bindtap="switchBar" data-pageType="1">赞过我的</text>
+	</view>
+	<view class="flex-1">
+		<text class="bar {{pageType==2?'active':''}}" bindtap="switchBar" data-pageType="2">回复我的</text>
+	</view>
+</view>
+<view wx:if="{{pageType==1}}" wx:for="{{getPraiseMeList}}" wx:for-item="item" wx:key="index" bindtap="{{item.type==1?'TaptoTopic_details':item.infoType==1?'TaptoNews_details':item.infoType==2?'TaptoVideo_details':'TaptoTopic_details'}}" data-id="{{item.infoId}}" class="bg-white CB_con contentPadding01 mt_20">
+	<view class="CB_avatar">
+		<image class="videolistLogo" src="{{item.headImage}}" />
+	</view>
+	<view class="CB_text">
+		<view class="clearfix CBT_01">
+			<text>{{item.showName}}<text class="CB_thumbUp">赞了你的{{item.infoType==1?'话题':'评论'}}</text>
+			<text class="CBT_01_time">{{filter.dateFormate(item.addTime)}}</text>
+			</text>
+		</view>
+		<view class="CB_con_next">
+			<view class="CB_con">
+				<view class="CB_avatar flex-con align-items-center">
+					<image class="videolistLogo" src="{{wxUserInfo.avatarUrl}}" />
+				</view>
+				<view class="CB_text">
+					<view class="clearfix CBT_01 ellipsis">
+						<text>{{wxUserInfo.nickName}}<text class="CB_thumbUp">{{item.content}}</text>
+						</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view wx:if="{{pageType==2}}" wx:for="{{getReplyMeList}}" wx:for-item="item" wx:key="index" bindtap="{{item.type==1?'TaptoTopic_details':item.infoType==1?'TaptoNews_details':item.infoType==2?'TaptoVideo_details':'TaptoTopic_details'}}" data-id="{{item.infoId}}" class="bg-white CB_con contentPadding01 mt_20">
+	<view class="CB_avatar">
+		<image class="videolistLogo" src="{{item.headImage}}" />
+	</view>
+	<view class="CB_text">
+		<view class="clearfix CBT_01">
+			<text>{{item.showName}}<text class="CB_thumbUp">{{item.type==3?'评论了你的内容':'回复了你的评论'}}</text>
+			<text class="CBT_01_time">{{filter.dateFormate(item.addTime)}}</text>
+			</text>
+		</view>
+		<view class="CB_con_next">
+			<view class="CB_con">
+				<view class="CB_avatar flex-con align-items-center">
+					<image class="videolistLogo" src="{{wxUserInfo.avatarUrl}}" />
+				</view>
+				<view class="CB_text">
+					<view class="clearfix CBT_01 ellipsis">
+						<text>{{wxUserInfo.nickName}}<text class="CB_thumbUp">{{item.content}}</text>
+						</text>
+					</view>
+				</view>
+			</view>
+			<!-- <view class="CBN01">{{item.OtherCommentContent}}</view> -->
+			<!-- <view class="CBN02">回复TA</view> -->
+		</view>
+	</view>
+</view>
+<!-- <input class="comments_input {{comments_input?'show':'hidden'}}" focus="{{comments_input}}" bindblur="bindblurFun" bindconfirm="sendComments" confirm-type="send" placeholder="说点什么吧" /> -->
+
+

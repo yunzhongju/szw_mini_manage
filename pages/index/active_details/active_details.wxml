@@ -1,0 +1,160 @@
+<!--pages/index/active_details/active_details.wxml-->
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="container">
+	<view class="bg-white">
+		<!-- top -->
+		<view class="active_detail_top">
+			<image src="{{detail.coverImg}}" mode="aspectFit"></image>
+			<view class="active_share">
+				<image mode="aspectFit" src="https://www.quweiquwei.com:5743/images/social_pic/weChat_share.png"></image>
+				<text>分享</text>
+				<button class="share" open-type="share" data-name="pageShare">点击分享</button>
+			</view>
+		</view>
+		<!-- info -->
+		<view class="active_detail_info">
+			<view class="active-rule">
+				<view class="rule-item">
+					<view class="more" style="">
+						<rich-text 
+							nodes="{{detail.content}}" 
+							style="letter-spacing: 5rpx;"> 
+						</rich-text>
+					</view>
+				</view>
+
+				<view class="rule-item">
+					<view class="rule-left">
+						<image 
+							src="../../../images/active_time.svg" 
+							style="height:34rpx;width:34rpx;"></image>
+						<text>活动时间:</text>
+					</view>
+					<view class="rule-right">
+						<text>{{filter.dateFormate(detail.startTime)}}至{{filter.dateFormate(detail.endTime)}}</text>
+					</view>
+				</view>
+				<view class="rule-item">
+					<view class="rule-left">
+						<image 
+							src="../../../images/active_rules.svg" 
+							style="height:34rpx;width:34rpx"></image>
+						<text>活动规则:</text>
+					</view>
+					<view class="rule-right padd-top">
+						<text>用户每天可投{{detail.sets.dayTimes}}票</text>
+					</view>
+				</view>
+
+				<view class="rule-item" bindtap="handleShowQr" wx:if="{{detail.qrCode}}">
+					<view class="rule-left">
+						<image 
+							src="../../../images/qr2.png" 
+							style="height:34rpx;width:34rpx"></image>
+						<text>公众号:</text>
+					</view>
+					<view class="rule-right padd-top">
+						<text>点击<text 
+								class="qrCode" 
+								>"{{detail.qrTitle}}"</text>关注</text>
+					</view>
+				</view>
+			</view>
+
+			<view class="active_merber">
+				<view>
+					<text>{{detail.joiners}}</text>
+					<text>参与人数</text>
+				</view>
+				<view>
+					<text>{{total}}</text>
+					<text>总投票数</text>
+				</view>
+				<view>
+					<text>{{detail.readNumber+(detail.vmRead?detail.vmRead:0)}}</text>
+					<text>总访问数</text>
+				</view>
+			</view>
+
+			<view class="active_time">
+				<text wx:if="{{detail.name=='已开始'}}">距离活动结束还有</text>
+				<text class="atime">{{cpuTime}}</text>
+			</view>
+
+			<!-- serach -->
+			<view class="active_serach">
+				<view class="serach_info">
+					<image mode="aspectFit" src="../../../images/active_serach.svg"></image>
+					<input placeholder="输入关键字" 
+					value="{{serachContent}}" 
+					bindconfirm="handleSerach"
+					bindinput="handleInput"></input>
+				</view>
+				<!-- <text bindtap="handleSerach">搜索</text> -->
+				<text wx:if="{{serachContent}}" class="delete" catchtap="handleClearSerach">×</text>
+			</view>
+
+			<!-- list -->
+			<view class="active_list_box">
+				<view class="list_item_box" wx:for="{{itemList}}">
+					<view 
+						class="item_up" 
+						bindtap="taptoPlayer_details" 
+						data-id="{{item.id}}">
+						<image src="{{item.coverImg}}"></image>
+						<text>第{{index+1}}名</text>
+					</view>
+					<view class="item_down">
+						<view>
+							<text class="setellipsis">{{item.title}}</text>
+						</view>
+						<view class="item-down-mid">
+							<text>{{item.code>9?item.code:'0'+item.code}}号选手</text>
+							<text>{{item.ticket>9999?filter.handleTicket(item.ticket)+'万':item.ticket}}票</text>
+						</view>
+						<view>
+							<button 
+								class="mini-btn" 
+								type="primary" 
+								size="mini" 
+								bindtap="handleDoVote" 
+								data-id="{{item.id}}" 
+								data-index="{{index}}"
+								data-title="{{detail.sets.title}}">
+								{{detail.sets.title}}
+							</button>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view wx:if="{{showQrCode}}">
+	<van-overlay 
+		wx:if="{{showQrCode}}"
+		show="{{showQrCode}}" 
+		z-index="111"
+		bind:click="onClickHide">
+  <view class="wrapper">
+		<view class="block" catch:tap="noop">
+			<image src="{{qrCode}}" style="height:430rpx;width:430rpx"></image>
+			<text class="qrTitle">请关注 "{{qrTitle}}" 公众号</text>
+			<view class="saveBtn">
+				<van-button 
+					bind:click="handleSaveImg"
+					custom-style="width:100%;border-radius: 20rpx;background-color: red;"
+					type="danger">保存至相册</van-button>
+			</view>
+		</view>
+  </view>
+</van-overlay>
+</view>
+<view class="showLoad">
+	<van-loading 
+	wx:if="{{showLoading}}"
+	vertical
+	type="spinner" 
+	color="#d81e06">正在保存...</van-loading>
+</view>

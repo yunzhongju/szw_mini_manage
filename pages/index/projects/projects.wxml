@@ -1,0 +1,19 @@
+<!-- 区域 -->
+<view class="container contentBox01">
+	<view class="area" wx:for="{{projectsList}}" wx:for-item="item" bindtap="TaptoProjects_details" data-id="{{item.id}}">
+		<image mode="aspectFill" src="{{item.image_path}}" />
+		<view class="areaInfo flex-con flex-con-center align-items-center">
+			<view class="areaInfoTextBox">
+				<view class="areaInfo01">{{item.title}}</view>
+				<view class="areaInfo02">共{{item.news_number}}篇新闻</view>
+			</view>
+		</view>
+		<view class="FocusOnBox">
+			<view class="FocusOn FocusOn{{item.attention||'0'}} flex-con flex-con-center align-items-center" catchtap="isFocusOn" data-on="{{item.attention}}" data-id="{{item.id}}">
+				<image src="/images/FocusOn{{item.attention||'0'}}.png" />
+				{{item.attention==1?'已关注':'关注'}}
+			</view>
+		</view>
+	</view>
+</view>
+

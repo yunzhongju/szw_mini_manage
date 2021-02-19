@@ -1,0 +1,83 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="bg-white clearfix bar-list flex-con flex-con-start align-items-center">
+	<view class="flex-1">
+		<text class="bar {{pageType==1?'active':''}}" bindtap="switchBar" data-pageType="1">新闻</text>
+	</view>
+	<view class="flex-1 {{is_video==0?'hidden':''}}">
+		<text class="bar {{pageType==2?'active':''}}" bindtap="switchBar" data-pageType="2">视频</text>
+	</view>
+	<view class="flex-1">
+		<text class="bar {{pageType==3?'active':''}}" bindtap="switchBar" data-pageType="3">话题</text>
+	</view>
+</view>
+<!-- 新闻 -->
+<view class="bg-white CB_con contentPadding01 mt_20" wx:if="{{pageType==1}}" wx:for="{{newsList}}" wx:for-item="item" wx:key="index" bindtap="TaptoNews_details" data-id="{{item.contentId}}">
+	<view class="CB_avatar">
+		<image class="videolistLogo" src="{{wxUserInfo.avatarUrl}}" />
+	</view>
+	<view class="CB_text">
+		<view class="clearfix CBT_01">
+			<text>{{wxUserInfo.nickName}}<text class="CB_thumbUp">赞了新闻</text></text>
+		</view>
+		<view class="CB_con_next">
+			<view class="CB_con newlistBox contentBox01">
+				<view class="clearfix flex-con flex-con-start newlist">
+					<view class="flex-1 newlistLeft">
+						<view class='title text_ellipsis_two'>{{item.title}}</view>
+					</view>
+					<image class="newlistLogo" mode="aspectFill" src="{{item.imagePath}}"/>
+				</view>
+			</view>
+			<view class="CBN01">{{filter.dateFormate(item.addTime)}}</view>
+		</view>
+	</view>
+</view>
+<!-- 视频 -->
+<view class="bg-white CB_con contentPadding01 mt_20" wx:if="{{pageType==2}}" wx:for="{{videoList}}" wx:for-item="item" wx:key="index" bindtap="TaptoVideo_details" data-id="{{item.contentId}}">
+	<view class="CB_avatar">
+		<image class="videolistLogo" src="{{wxUserInfo.avatarUrl}}" />
+	</view>
+	<view class="CB_text">
+		<view class="clearfix CBT_01">
+			<text>{{wxUserInfo.nickName}}<text class="CB_thumbUp">赞了视频</text></text>
+		</view>
+		<view class="CB_con_next">
+			<view class="CB_con newlistBox contentBox01">
+				<view class="clearfix flex-con flex-con-start newlist">
+					<view class="flex-1 newlistLeft">
+						<view class='title text_ellipsis_two'>{{item.title}}</view>
+					</view>
+					<view class="newlistLogo icon_playBox">
+						<image class="newlistLogo" mode="aspectFill" src="{{item.imagePath}}"></image>
+						<!-- <video class="newlistLogo" src="{{newlist.file_path}}" controls="{{false}}" /> -->
+						<image class="icon_play" src="/images/icon_play.png"></image>
+				    </view>
+				</view>
+			</view>
+			<view class="CBN01">{{filter.dateFormate(item.addTime)}}</view>
+		</view>
+	</view>
+</view>
+<!-- 话题 -->
+<view class="bg-white CB_con contentPadding01 mt_20" wx:if="{{pageType==3}}" wx:for="{{topicList}}" wx:for-item="item" wx:key="index" bindtap="TaptoTopic_details" data-id="{{item.contentId}}">
+	<view class="CB_avatar">
+		<image class="videolistLogo" src="{{wxUserInfo.avatarUrl}}" />
+	</view>
+	<view class="CB_text">
+		<view class="clearfix CBT_01">
+			<text>{{wxUserInfo.nickName}}<text class="CB_thumbUp">赞了话题</text></text>
+		</view>
+		<view class="CB_con_next">
+			<view class="CB_con newlistBox contentBox01">
+				<!-- 话题 -->
+				<view class="clearfix flex-con flex-con-start newlist">
+					<view class="flex-1 newlistLeft">
+						<view class='title text_ellipsis_two'>{{item.title}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="CBN01">{{filter.dateFormate(item.addTime)}}</view>
+		</view>
+	</view>
+</view>
+

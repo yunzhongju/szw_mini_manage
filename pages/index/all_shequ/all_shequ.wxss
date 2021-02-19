@@ -1,0 +1,27 @@
+@import "../../../utils/css/common.wxss";
+
+/* 本地社区 */
+
+.LC_imgBox {
+    padding: 20rpx 0 20rpx 32rpx;
+}
+
+.LCIB {
+    margin-bottom: 26rpx;
+}
+
+.LCIB_img {
+    width: 215rpx;
+    height: 161rpx;
+}
+
+.LCIB_text {
+    width: 215rpx;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #333;
+}
+
+.LC_imgBox .LCIB:nth-child(3n+2) {
+    margin: 0 18rpx;
+}

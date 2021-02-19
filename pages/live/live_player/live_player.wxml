@@ -1,0 +1,8 @@
+<!--pages/live/live_player/live_player.wxml-->
+<live-player 
+  src="https://domain/pull_stream" 
+  mode="live" 
+  autoplay 
+  bindstatechange="statechange" 
+  binderror="error" 
+  style="width: 100%; height: 500rpx;" />

@@ -1,0 +1,52 @@
+/* components/reservation/reservation.wxss */
+.reservation{
+  height: 134rpx;
+  display: flex;
+  align-items: center;
+}
+.left{
+  width: 250rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.left .yugao{
+  font-size: 40rpx;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+.divider{
+  height: 100%;
+  width: 6rpx;
+  background-color: gainsboro;
+  margin: 0 30rpx;
+}
+
+.scroll-view_H{
+  height: 110rpx;
+}
+.right{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.right .title{
+  margin-bottom: 20rpx;
+  color: rgb(104, 102, 102);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+}
+.right .startTime{
+  font-size: 28rpx;
+}
+.empty{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

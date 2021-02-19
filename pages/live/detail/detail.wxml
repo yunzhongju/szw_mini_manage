@@ -1,0 +1,70 @@
+<!--pages/live/detail/detail.wxml-->
+<view class="detail-head">
+  <image class="bg-size" src="../../../images/live/timg.jpg"></image>
+  <view class="detail-nav">
+    <van-row>
+      <van-col span="2">
+        <van-icon bind:click="handleBack" name="arrow-left" size="24px" />
+      </van-col>
+      <van-col span="22">
+        <text>关注</text>
+      </van-col>
+    </van-row>
+  </view>
+  <view class="detail-info">
+    <van-row>
+      <van-col span="12">
+        <van-row>
+          <van-col span="9">
+            <image class="head-size" src="{{detail.headImage?detail.headImage:'../../../images/live/detail-bg.png'}}"></image>
+          </van-col>
+          <van-col span="15">
+            <view class="flex-center">
+              <text class="ellipsis_one">{{detail.anchorName}}</text>
+            </view>
+          </van-col>
+        </van-row>
+      </van-col>
+      <van-col span="6">
+        <view class="flex-center">
+          <text class="font10">关注 {{detail.fansCount}}</text>
+        </view>
+      </van-col>
+      <van-col span="6">
+        <view class="flex-center">
+          <text wx:if="{{isAttendance}}" 
+          bindtap="handleAttendance" 
+          data-isself="{{detail.isAnchor}}"
+          data-type="1" 
+          class="detail-attendance">已关注</text>
+          <text wx:if="{{!isAttendance}}" 
+          bindtap="handleAttendance" 
+          data-type="2" 
+          data-isself="{{detail.isAnchor}}"
+          class="detail-attendance1">关注</text>
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+
+<view class="detail-content">
+  <view class="detail-item" wx:for="{{liveList}}" bindtap="handleToLivePlayer" data-roomId="{{item.roomId}}">
+    <image class="imgsize" src="{{item.anchorImg}}"></image>
+    <view class="item-bottom">
+      <text class="ellipsis_one">{{item.roomName}}</text>
+    </view>
+    <view class="item-top {{item.liveStatus=='101'?'top-bg':''}}">
+      <van-row>
+        <van-col span="15">
+          <text wx:if="{{item.liveStatus=='101'}}">直播中</text>
+          <text wx:if="{{item.liveStatus=='103'}}">回 放</text>
+        </van-col>
+        <van-col span="5">
+          <image class="icon-size20" src="../../../images/live/liveing.png"></image>
+          <!-- <image wx:if="{{item.liveStatus=='101'}}" class="icon-size20" src="../../../images/live/liveing.png"></image> -->
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+</view>

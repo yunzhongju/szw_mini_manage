@@ -1,0 +1,31 @@
+<view class="container">
+	<view class="bg-white">
+		<view class="votes_list_box">
+			<view 
+				class="list_item_box" 
+				bindtap="taptoActive_details" 
+				data-aid="{{item.activityId}}"
+				wx:for="{{activeList}}">
+				<view class="item_box_top" >
+					<text>{{item.acTitle}}</text>
+					<image src="../../../images/active_right.svg"></image>
+				</view>
+				<view class="item_box_mid">
+					<image src="{{item.coverImg}}"></image>
+					<view class="right">
+						<view class="title"><text >{{item.itemTile}}</text></view>
+
+						<view class="mid_mid">
+							<text>{{item.code>9?item.code:'0'+item.code}}号选手</text>
+							<text>{{item.ticket}}票</text>
+						</view>
+						<text>{{item.voteTime}}</text>
+					</view>
+				</view>
+				<!-- <view class="item_box_bot">
+					<button type="primary" plain="true" size="mini" bindtap="taptoActiveItem_details" data-aid="{{item.activityId}}" data-id="{{item.itemId}}">查看详情</button>
+				</view> -->
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,114 @@
+<!-- <view wx:if="{{type !='accounts'}}" class="myPosition contentBox02 bg-white flex-con align-items-center">
+	<text class="flex-8">我的定位：{{communityDetails.title}}</text>
+	<view class="flex-1 icon_refreshBox">
+		<image bindtap="TapLocation" class="icon_refresh" src="/images/icon_refresh.png" />
+	</view>
+</view> -->
+
+<!-- <view class="bg-white contentPadding01 contentBox02">
+	<view class="CB_title01">常用社区</view>
+	<view class="clearfix commonlyUsedBox">
+		<view class="float-l">金沙公园东社区</view>
+		<view class="float-l">最多显示2个</view>
+	</view>
+</view> -->
+
+<view class="bg-white contentPadding01 bindtap choosewrap">
+	<view class="CB_title01">选择位置</view>
+	
+	<van-row gutter="10" custom-class="marg-top">
+		<van-col span="6" offset="2"><text class="set-color">所属省份</text></van-col>
+  	<van-col span="14" bindtap="handleChoose" data-type="0"><text>{{pro}}</text></van-col>
+	</van-row>
+	<van-row gutter="10" custom-class="marg-top">
+		<van-col span="6" offset="2"><text class="set-color">所属城市</text></van-col>
+  	<van-col span="14" bindtap="handleChoose" data-type="1"><text>{{city}}</text></van-col>
+	</van-row>
+	<van-row gutter="10" custom-class="marg-top">
+		<van-col span="6" offset="2"><text class="set-color">所属区县</text></van-col>
+  	<van-col span="14" bindtap="handleChoose" data-type="2">
+			<text wx:if="{{country}}">{{country}}</text>
+			<text wx:if="{{!country}}" style="color:grey;">请选择区县</text>
+		</van-col>
+	</van-row>
+
+	<van-row gutter="10" custom-class="marg-top">
+		<van-col span="6" offset="2"><text class="set-color">所属街道</text></van-col>
+  	<van-col span="14" bindtap="handleChoose" data-type="3">
+			<text wx:if="{{street}}">{{street}}</text>
+			<text wx:if="{{!street}}" style="color:grey;">请选择街道</text>
+		</van-col>
+	</van-row>
+	<van-row gutter="10" custom-class="marg-top">
+		<van-col span="6" offset="2"><text class="set-color">所属社区</text></van-col>
+  	<van-col span="14" bindtap="handleChoose" data-type="4">
+			<text wx:if="{{community}}">{{community}}</text>
+			<text wx:if="{{!community}}" style="color:grey;">请选择社区</text>
+		</van-col>
+	</van-row>
+
+	<van-row custom-class="marg-top">
+	  <van-col span="24">
+			<view class="sureBtn" bindtap="sureBtn">确认选择</view>
+		</van-col>
+	</van-row>
+	
+	
+	<van-popup 
+	show="{{ show }}" 
+	position="bottom"
+	custom-style="height: 40%;"
+	bind:close="onClose">
+	<van-picker 
+	show-toolbar
+	bind:confirm="onConfirm"
+	bind:cancel="onCancel"
+	columns="{{ columns }}" 
+	bind:change="onChange" />
+	</van-popup>
+
+<!-- 	<view class="clearfix chooseBox">
+		<view class="float-l section">
+			<picker class="float-l picker" range="{{city1}}" range-key="orgname" value="{{city1}}" bindchange="bindcity1">
+				<view class="picker">
+					{{city1[city1Index]['orgname']}}
+				</view>
+			</picker>
+			<image class="icon_xiala" src="/images/icon_xiala02.png" />
+		</view>
+		<view class="float-l section">
+			<picker class="float-l picker" range="{{city2}}" range-key="orgname" value="{{city2}}" bindchange="bindcity2">
+				<view class="picker">
+					{{city2[city2Index]['orgname']}}
+				</view>
+			</picker>
+			<image class="icon_xiala" src="/images/icon_xiala02.png" />
+		</view>
+		<view class="float-l section">
+			<picker class="float-l picker" range="{{city3}}" range-key="orgname" value="{{city3}}" bindchange="bindcity3">
+				<view class="picker">
+					{{city3[city3Index]['orgname']}}
+				</view>
+			</picker>
+			<image class="icon_xiala" src="/images/icon_xiala02.png" />
+		</view>
+		<view class="float-l section">
+			<picker class="float-l picker" range="{{city4}}" range-key="orgname" value="{{city4}}" bindchange="bindcity4">
+				<view class="picker">
+					{{city4[city4Index]['orgname']}}
+				</view>
+			</picker>
+			<image class="icon_xiala" src="/images/icon_xiala02.png" />
+		</view>
+		<view wx:if="{{type !='accounts'&&city5.length>0}}" class="float-l section">
+			<picker class="float-l picker" range="{{city5}}" range-key="orgname" value="{{city5}}" bindchange="bindcity5">
+				<view class="picker">
+					{{city5[city5Index]['orgname']}}
+				</view>
+			</picker>
+			<image class="icon_xiala" src="/images/icon_xiala02.png" />
+		</view>
+	</view>
+	<view class="sureBtn" bindtap="sureBtn">确认选择</view> -->
+</view>
+

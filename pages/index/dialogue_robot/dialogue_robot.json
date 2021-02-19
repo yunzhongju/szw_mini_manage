@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "chat": "plugin://myPlugin/chat"
+  }
+}

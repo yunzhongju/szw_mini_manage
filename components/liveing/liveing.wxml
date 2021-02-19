@@ -1,0 +1,8 @@
+<!--components/liveing/liveing.wxml-->
+<view class="liveing">
+  <view class="live-nav" bindtap="handleToLiveing">
+    <text class="name">正在直播<text class="count">({{len}})</text></text>
+    <!-- <text class="count">(12)</text> -->
+    <text class="more">更多></text>
+  </view>
+</view>

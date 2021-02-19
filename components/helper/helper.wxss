@@ -1,0 +1,16 @@
+/* components/helper/helper.wxss */
+.helper{
+  background-color: #bfbfbf;
+  border-radius: 40rpx;
+  display: flex;
+  padding: 15rpx 25rpx;
+  align-items: center;
+  width: 200rpx;
+}
+.helper image{
+  width: 44rpx;
+  height: 44rpx;
+}
+.helper text{
+  margin-left: 10rpx;
+}

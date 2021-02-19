@@ -1,0 +1,135 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+
+<!-- <view wx:if="{{!wxUserInfo.avatarUrl}}" class="bg-white loginImgBox flex-con align-items-center">
+	<view class="clearfix loginImgwrap loginImgwrap01">
+		<button class="float-l loginImg loginImgwrap getUserInfoStyle" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+			未登录
+		</button>
+		<button class="getUserInfo" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击获取个人信息</button>
+	</view>
+</view>
+<view wx:elif="{{wxUserInfo.avatarUrl&&focusOn==0&&myAttentionList.length<1}}" class="FocusOnImgBox flex-con align-items-center flex-con-center">
+	<image class="FocusOnImg" src="/images/FocusOnImg.png" />
+	<view class="FOIB01">你还没有关注的内容哦～</view>
+</view> -->
+
+<!-- <view wx:elif="{{wxUserInfo.avatarUrl&&myAttentionList.length>0}}" class="bg-white">
+	<view class="CB_title01">关注社区</view>
+	<view class="clearfix bg-white communityBox">
+		<block wx:if="{{myAttentionList.length<3}}">
+			<view class="float-l LC_mr LCSwiper" wx:for="{{myAttentionList}}" wx:for-item="item" bindtap="TaptoCommunity_details" data-id="{{item.id}}" data-longitude="{{item.longitude}}" data-latitude="{{item.latitude}}">
+				<view class="LC_ImgBox">
+					<image class="LCIB_img" src="{{item.image_path}}" />
+					<view class="LCIB_text ellipsis">{{item.title}}</view>
+				</view>
+			</view>
+		</block>
+		<block wx:if="{{myAttentionList.length>2}}">
+			<swiper class="LCSwiper" display-multiple-items="3">
+				<swiper-item class="LC_item" wx:for="{{myAttentionList}}" wx:for-item="item" bindtap="TaptoCommunity_details" data-id="{{item.id}}" data-longitude="{{item.longitude}}" data-latitude="{{item.latitude}}">
+					<view class="LC_ImgBox">
+						<image class="LCIB_img" src="{{item.image_path}}" />
+						<view class="LCIB_text ellipsis">{{item.title}}</view>
+					</view>
+				</swiper-item>
+			</swiper>
+		</block>
+	</view>
+	<view class="spacing01"></view>
+</view> -->
+
+<view class="bg-white">
+	<!-- <block wx:if="{{focusOn==0}}">
+		<view class="CB_title01">推荐内容</view>
+		<view
+			class="newlistBox"
+			wx:for="{{getRecentlyUpdateNewsInfoList}}"
+			wx:for-item="item"
+			wx:key="index"
+			bindtap="{{item.info_list[0].type==1?'TaptoNews_details':'TaptoVideo_details'}}"
+			data-id="{{item.info_list[0].id}}"
+		>
+			<view class="clearfix flex-con flex-con-start newlist">
+				<view class="flex-1 newlistLeft">
+					<view class='title text_ellipsis_two'>{{item.info_list[0].title}}</view>
+					<view class='clearfix tip'>
+						<view class="float-l tipLeft flex-con align-items-center">
+							<image class="pageViews" src="/images/pageViews.png" />
+							{{item.info_list[0].read_number}}人浏览
+						</view>
+					</view>
+				</view>
+				<image wx:if="{{item.info_list[0].type==1}}" class="newlistLogo" mode="aspectFill" src="{{item.info_list[0].image_path}}"/>
+				<view wx:else class="newlistLogo icon_playBox">
+					<image class="newlistLogo" mode="aspectFill" src="{{item.info_list[0].image_path}}" />
+					<image class="icon_play" src="/images/icon_play.png" />
+				</view>
+			</view>
+			<view class="ProjectName">
+				<text class="color01">{{item.title}}</text>
+				<text class="float-r">{{item.last_update_time}}</text>
+			</view>
+		</view>
+	</block> -->
+
+<block wx:if="{{focusOn==0}}">
+		<view class="CB_title01">推荐内容</view>
+		<view
+			class="newlistBox"
+			wx:for="{{list}}"
+			wx:for-item="item"
+			wx:key="index"
+			bindtap="TaptoNews_details"
+			data-id="{{item.id}}"
+		>
+			<view class="clearfix flex-con flex-con-start newlist">
+				<view class="flex-1 newlistLeft">
+					<view class='title text_ellipsis_two'>{{item.title}}</view>
+					<view class='clearfix tip'>
+						<view class="float-l tipLeft flex-con align-items-center">
+							<image class="pageViews" src="/images/pageViews.png" />
+							{{item.readNumber}}人浏览
+						</view>
+					</view>
+				</view>
+				<image wx:if="{{item.info_list[0].type==1}}" class="newlistLogo" mode="aspectFill" src="{{item.imagePath}}"/>
+				<view wx:else class="newlistLogo icon_playBox">
+					<image class="newlistLogo" mode="aspectFill" src="{{item.imagePath}}" />
+					<!-- <image class="icon_play" src="/images/icon_play.png" /> -->
+				</view>
+			</view>
+			<view class="ProjectName">
+				<text class="color01">{{item.topicName}}</text>
+				<text class="float-r">{{filter.dateFormate(item.addTime)}}</text>
+			</view>
+		</view>
+	</block>
+
+	<block wx:else>
+		<view class="CB_title01">关注专题</view>
+		<view class="newlistBox" wx:for="{{getMyAttentionNewsInfoList}}" wx:for-item="item" wx:key="index" bindtap="{{item.type==1?'TaptoNews_details':'TaptoVideo_details'}}" data-id="{{item.id}}">
+			<view class="clearfix flex-con flex-con-start newlist">
+				<view class="flex-1 newlistLeft">
+					<view class='title text_ellipsis_two'>{{item.title}}</view>
+					<view class='clearfix tip'>
+						<view class="float-l tipLeft flex-con align-items-center">
+							<image class="pageViews" src="/images/pageViews.png" />
+							{{item.read_number}}人浏览
+						</view>
+					</view>
+				</view>
+				<image wx:if="{{item.type==1}}" class="newlistLogo" mode="aspectFill" src="{{item.image_path}}"/>
+				<view wx:else class="newlistLogo icon_playBox">
+					<image class="newlistLogo" mode="aspectFill" src="{{item.image_path}}" />
+					<image class="icon_play" src="/images/icon_play.png" />
+				</view>
+			</view>
+			<view class="ProjectName">
+				<text class="color01">{{item.special_topic_name}}</text>
+				<text class="float-r">{{item.add_time}}</text>
+			</view>
+		</view>
+	</block>
+</view>
+
+

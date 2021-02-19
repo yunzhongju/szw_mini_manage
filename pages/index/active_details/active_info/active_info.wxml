@@ -1,0 +1,27 @@
+<wxs module="filter" src="../../../../utils/filter/filter.wxs"></wxs>
+<view class="container">
+	<view class="bg-white">
+		<view class="active_info_top">
+			<image mode="aspectFit" src="{{detail.coverImg}}"></image>
+		</view>
+
+		<view class="active_info_mid">
+			<view>
+				<text class="active_title">活动时间</text>
+				活动时间：{{filter.dateFormate(detail.startTime)}}至{{filter.dateFormate(detail.endTime)}}
+			</view>
+			<view>
+				<text class="active_title">活动规则</text>
+				<text>用户每天可投{{detail.sets.dayTimes}}票</text>
+				<!-- <text>用户投票总次数{{detail.sets.totalTimes}}</text>
+				<text>{{detail.sets.dayRevote?'允许':'不允许'}}单日重复投</text> -->
+			</view>
+			<view>
+				<text class="active_title">活动介绍</text>
+				<block wx:if="{{detail}}">
+          <rich-text nodes="{{detail.content}}"></rich-text>
+        </block>
+			</view>
+		</view>
+	</view>
+</view>

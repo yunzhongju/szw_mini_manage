@@ -1,0 +1,98 @@
+@import "../../../utils/css/common.wxss";
+.RT_content {
+    margin-top: 20rpx;
+    padding: 0 32rpx;
+}
+
+.input_title {
+    font-size: 30rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #F0F0F0;
+}
+
+.textarea_style {
+    font-size: 30rpx;
+    margin: 36rpx 0;
+    height: 211rpx;
+    width: 100%;
+}
+
+.upImg,
+.ImgStyle {
+    width: 200rpx;
+    height: 150rpx;
+}
+
+.addImgBox .upImg:nth-child(2) {
+    margin: 0 43rpx;
+}
+
+.ml {
+    margin-left: 43rpx;
+}
+
+.upImg {
+    position: relative;
+}
+
+.upImg .icon_del {
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+}
+
+.upImgTitle {
+    padding: 20rpx 0;
+    font-size: 22rpx;
+    color: #999999;
+    border-bottom: 1rpx solid #F0F0F0;
+}
+
+.choose_Box {
+    font-size: 26rpx;
+    color: #999999;
+    height: 100rpx;
+}
+
+.choose_Box_border {
+    border-bottom: 1rpx solid #F0F0F0;
+}
+
+.icon_position,
+.icon_column {
+    margin-right: 11rpx;
+}
+
+.CCB {
+    font-size: 26rpx;
+    color: #979797;
+    width: 220rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    border: 1rpx solid #979797;
+    border-radius: 4rpx;
+    margin-bottom: 22rpx;
+}
+
+.choose_columnBox>.CCB:nth-child(3n+2) {
+    margin: 0 13rpx;
+}
+
+.CCB.active {
+    color: #F72517;
+    border-color: #F72517;
+}
+
+.publishBtn {
+    width: 320rpx;
+    height: 90rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #F72517;
+    border-radius: 8rpx;
+    text-align: center;
+    line-height: 90rpx;
+    margin: 122rpx auto 0;
+}

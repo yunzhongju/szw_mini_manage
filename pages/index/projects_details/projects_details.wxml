@@ -1,0 +1,35 @@
+<!-- 区域 -->
+<view class="container contentBox01">
+  <view class="area">
+      <image mode="aspectFill" src="{{SpecialTopic.image_path}}"></image>
+      <view class="areaInfo flex-con flex-con-center align-items-center">
+        <view class="areaInfoTextBox">
+          <view class="areaInfo01">{{SpecialTopic.title}}</view>
+          <view class="areaInfo02">共{{SpecialTopic.news_number}}篇新闻</view>
+        </view>
+      </view>
+      <view class="FocusOnBox">
+        <view class="FocusOn FocusOn{{SpecialTopic.is_attention==1?1:0}} flex-con flex-con-center align-items-center" bindtap="isFocusOn" data-on="{{SpecialTopic.is_attention}}" data-id="{{SpecialTopic.id}}">
+          <image src="/images/FocusOn{{SpecialTopic.is_attention==1?1:0}}.png"></image>{{SpecialTopic.is_attention==1?'已关注':'关注'}}
+        </view>
+      </view>
+  </view>
+  <view class="bg-white newlistBox">
+    <view class="clearfix flex-con flex-con-start newlist" wx:for="{{list}}" wx:for-item="item" wx:key="index" bindtap="{{item.type==1?'TaptoNews_details':'TaptoVideo_details'}}" data-id="{{item.id}}">
+      <view class="flex-1 newlistLeft">
+        <view class='title text_ellipsis_two'>{{item.title}}</view>
+        <view class='clearfix tip'>
+          <view class="float-l tipLeft flex-con align-items-center">
+            <image class="pageViews" src="/images/pageViews.png"></image>{{item.read_number}}人浏览
+          </view>
+        </view>
+      </view>
+      <image wx:if="{{item.type==1}}" class="newlistLogo" mode="aspectFill" src="{{item.image_path}}"></image>
+			<view wx:else class="newlistLogo icon_playBox">
+				<image class="newlistLogo" mode="aspectFill" src="{{item.image_path}}"></image>
+				<!-- <video class="newlistLogo" src="{{item.file_path}}" controls="{{false}}" /> -->
+				<image class="icon_play" src="/images/icon_play.png"></image>
+			</view>
+    </view>
+  </view>
+</view>

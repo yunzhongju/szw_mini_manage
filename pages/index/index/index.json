@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "nav-bar": "/template/custom-component/custom-component",
+        "helper":"/components/helper/helper"
+    }
+}

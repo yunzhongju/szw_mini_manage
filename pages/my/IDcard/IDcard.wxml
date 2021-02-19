@@ -1,0 +1,34 @@
+<view class="IDcard">
+	<!-- 上传正面 -->
+	<view class="binxdzm" bindtap="uploadimages" data-type="positive">
+		<view class="pushcard">
+			<view class="addl">+</view>
+		</view>
+		<view>上传身份证正面</view>
+	</view>
+	<!-- 显示图片 -->
+	<image wx:if="{{positive.length}}" class="cardZM" src="{{positive[0]}}"></image>
+	<view wx:if="{{positive.length}}" class="rebx" bindtap="rompost">X</view>
+	<view class="prog" wx:if="{{positive.length}}">
+		<progress percent="80" color="#10AEFF" active stroke-width="3" />
+	</view>
+</view>
+
+
+<!-- 反面 -->
+<view class="IDcard">
+	<!-- 上传反面 -->
+	<view class="binxdzm" data-type="back" bindtap="uploadimages" >
+		<view class="pushcard">
+			<view class="addl">+</view>
+		</view>
+		<view>上传身份证反面</view>
+	</view>
+	<!-- 显示图片 -->
+	<image wx:if="{{iungs}}" class="cardZM" src="http://5b0988e595225.cdn.sohucs.com/images/20181130/f2e59635ddc747eeba40eed00859f4ba.jpeg"></image>
+	<view wx:if="{{iungs}}" class="rebx">X</view>
+	<view class="prog" wx:if="{{iungs}}">
+		<progress percent="80" color="#10AEFF" active stroke-width="3" />
+	</view>
+</view>
+<view class="msgs">上传照片应无反光和水印，确保身份证尽量充满图片，文字清晰可见。</view>

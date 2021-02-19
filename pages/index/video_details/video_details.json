@@ -1,0 +1,11 @@
+{
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "视频详情",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "van-row": "@vant/weapp/row/index",
+        "van-col": "@vant/weapp/col/index",
+        "van-field": "@vant/weapp/field/index"
+    }
+}

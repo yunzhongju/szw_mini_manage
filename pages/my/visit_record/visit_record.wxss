@@ -1,0 +1,119 @@
+@import "../../../utils/css/common.wxss";
+
+/* tab按钮 */
+
+.bar-list {
+    width: 100%;
+    padding-top: 16rpx;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+.bar {
+    display: inline-block;
+    height: 72rpx;
+    line-height: 72rpx;
+    position: relative;
+}
+
+.bar.active {
+    color: #E43E2C;
+}
+
+.bar.active::after {
+    content: "";
+    position: absolute;
+    left: 6%;
+    bottom: 0;
+    width: 88%;
+    height: 6rpx;
+    background-color: #E43E2C;
+    border-radius: 3rpx;
+}
+
+
+/* 新闻 */
+
+.newlistBox {
+    padding: 0 32rpx;
+}
+
+.newlist {
+    padding: 22rpx 0;
+}
+
+.newlistLeft {
+    margin-right: 46rpx;
+    width: 442rpx;
+}
+
+.newlistLeft .title {
+    font-size: 26rpx;
+}
+
+.newlistLeft .tip {
+    margin-top: 42rpx;
+}
+
+.tipLeft {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.tipLeft image {
+    display: inline-block;
+    margin-right: 12rpx;
+}
+
+
+/* 居民之声内容 */
+
+.peopleVoiceBox {
+    padding: 22rpx 32rpx 0;
+}
+
+.PVB_avatarBox {
+    line-height: 80rpx;
+    font-size: 22rpx;
+    color: #666666;
+}
+
+.PVB_avatar {
+    font-size: 30rpx;
+    color: #333;
+}
+
+.PVBAImg {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10rpx;
+}
+
+.PVB_title {
+    font-size: 30rpx;
+    margin: 28rpx 0;
+}
+
+.PVB_text {
+    font-size: 26rpx;
+    color: #666666;
+    padding-bottom: 28rpx;
+    border-bottom: 1rpx solid #E6E6E6;
+}
+
+.PVB_iconBox {
+    height: 76rpx;
+    line-height: 76rpx;
+    font-size: 26rpx;
+    color: #666;
+}
+
+.PVB_iconBox .pageViews {
+    margin-right: 20rpx;
+}
+
+.PVB_iconBox .icon_message {
+    margin-left: 40rpx;
+}

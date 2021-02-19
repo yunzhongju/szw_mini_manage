@@ -1,0 +1,34 @@
+/* components/tabs/tabs.wxss */
+.tabs-content{
+  display: flex;
+}
+.tab{
+  position: relative;
+  padding: 10rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title{
+  padding: 10rpx 0;
+}
+.divider{
+  position: absolute;
+  left: 35%;
+  bottom: 10rpx;
+  background-color: red;
+  height: 8rpx;
+  width: 30%;
+  border-radius: 30rpx;
+}
+.divider1{
+  background-color: white;
+  height: 8rpx;
+  width: 30%;
+  border-radius: 30rpx;
+}
+.isActive{
+  font-weight: 700;
+  color: black;
+}

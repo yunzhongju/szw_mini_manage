@@ -1,0 +1,302 @@
+@import "../../../utils/css/common.wxss";
+@import "../../../utils/wxParse/wxParse.wxss";
+
+/* 区域 */
+
+.detailTitle{
+    display: flex;
+    padding: 32rpx 32rpx;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.area {
+    position: relative;
+    color: #fff;
+    height: 320rpx;
+    margin: 0 32rpx;
+}
+
+.area image {
+    width: 100%;
+    height: 100%;
+}
+
+.areaInfo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.areaInfoTextBox {
+    text-align: center;
+}
+
+.areaInfo01 {
+    font-size: 32rpx;
+    margin-bottom: 12rpx;
+}
+
+.areaInfo02 {
+    font-size: 20rpx;
+    color: rgba(255, 255, 255, .8)
+}
+
+.FocusOnBox {
+    position: absolute;
+    right: 28rpx;
+    bottom: 20rpx;
+}
+
+.FocusOn {
+    width: 100rpx;
+    height: 44rpx;
+    background: #E43E2C;
+    border-radius: 4rpx;
+    font-size: 20rpx;
+    color: #fff;
+}
+
+.FocusOn image {
+    width: 26rpx;
+    height: 23rpx;
+    display: inline-block;
+    margin-right: 10rpx;
+}
+
+
+/* 新闻 */
+
+.newlistBox {
+    padding: 0 32rpx;
+    margin-bottom: 74rpx;
+}
+
+.newlist {
+    padding: 22rpx 0;
+    border-bottom: 1rpx solid #D8D8D8;
+}
+
+.newlistLeft {
+    margin-right: 46rpx;
+    width: 442rpx;
+}
+
+.newlistLeft .title {
+    font-size: 26rpx;
+}
+
+.newlistLeft .tip {
+    margin-top: 42rpx;
+}
+
+.tipLeft {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.tipLeft image {
+    display: inline-block;
+    margin-right: 12rpx;
+}
+
+
+/* 视频 */
+
+.videolistLogoBox {
+    position: relative;
+    height: 421.87rpx;
+}
+
+.videolistLogo {
+    width: 100%;
+    height: 100%;
+}
+
+.VL_MSK {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    height: 96rpx;
+    font-size: 28rpx;
+    font-weight: bolder;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+}
+
+
+/* 新闻详情 */
+.marginbottom20{
+    margin-bottom: 10rpx !important;
+    margin-top: 10rpx !important; 
+}
+
+.fontsize24 {
+    /* 字体为18 */
+    font-size: 36rpx !important;
+    text-indent: 0 !important;
+    text-align: justify !important;
+    font-weight: 400 !important;
+
+}
+.formatted{
+    /* height: 0; */
+    margin-bottom: 20rpx;
+}
+.textnext {
+    height: 28rpx;
+}
+
+.fontsize26 {
+    font-size: 30rpx !important;
+    line-height: 60rpx;
+    /* 缩进为0 */
+    text-indent: 0 !important;
+    text-align: justify;
+}
+
+.mainBox {
+    padding: 0 32rpx;
+}
+
+.title01 {
+    font-size: 26rpx;
+    color: #999999;
+    margin: 20rpx 0 46rpx;
+}
+
+.main_text {
+    font-size: 28rpx;
+    color: #666666;
+}
+
+.title02 {
+    font-size: 24rpx;
+    color: #666;
+    padding: 32rpx 0;
+}
+
+.title02_2 {
+    position: relative;
+}
+
+.title02_2 image,
+.title02_3 image {
+    margin-right: 10rpx;
+    width: 44rpx;
+    height: 44rpx;
+}
+
+.title02_2 .share {
+    width: 44rpx;
+    height: 44rpx;
+}
+
+
+/* 评论 */
+
+.CommentsBox {
+    margin: 28rpx 0 20rpx;
+    padding: 0 32rpx;
+}
+
+.CB_title01 {
+    font-size: 28rpx;
+    color: #000;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-weight: 500;
+}
+
+.CB_con {
+    padding: 26rpx 0;
+    border-bottom: 1rpx solid #E6E6E6;
+}
+
+.CB_avatar {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.CB_avatar image {
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 50%;
+}
+
+.CB_text {
+    margin: -48rpx 0 0 68rpx;
+}
+
+.CBT_01 {
+    font-size: 24rpx;
+    width: 100%;
+}
+
+.CBT_01 text {
+    font-weight: 500;
+}
+
+.CBT_01_img image {
+    margin-right: 12rpx;
+}
+
+.CBT_02 {
+    font-size: 24rpx;
+    color: #666;
+    margin: 12rpx 0 20rpx;
+}
+
+.CBT_03 {
+    font-size: 20rpx;
+    color: #999;
+}
+
+.CBT_03 text {
+    color: #0091FF;
+    margin-left: 28rpx;
+}
+
+.CB_all {
+    font-size: 26rpx;
+    color: #666666;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+
+/* 发表评论 */
+
+.publishBox {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 98rpx;
+    padding: 27rpx 32rpx;
+}
+
+.PB_input {
+    height: 100%;
+    width: 377rpx;
+    font-size: 26rpx;
+    color: #999;
+    padding-left: 15rpx;
+    border-right: 1px solid #DDDDDD;
+}
+
+.PB_Icon01 {
+    margin-left: 32rpx;
+}
+
+.PB_Icon01 image {
+    margin-left: 19rpx;
+}
+
+.PB_Icon02 {
+    margin-left: 44rpx;
+}

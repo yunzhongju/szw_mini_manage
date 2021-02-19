@@ -1,0 +1,19 @@
+<!--components/reservationItem/reservationItem.wxml-->
+<wxs module="filter" src="../../utils/filter/filter.wxs"></wxs>
+<view class="content" wx:if="{{detail}}">
+  <view class="show-img">
+    <image src="{{detail.anchorImg}}" mode="aspectFill"></image>
+    <text class="yugao">预告</text>
+  </view>
+  <text class="title">{{detail.roomName}}</text>
+  <view class="show-bottom">
+    <text class="time">{{detail.startTime}}</text>
+    <text>{{detail.subscribeCount}}预约</text>
+  </view>
+  <view class="yuyue" wx:if="{{!detail.isSubscribe&&detail.anchorName!=anchorName}}" data-id="{{detail.roomId}}"
+    bindtap="handleToReservat">预约</view>
+  <view class="kaibo" wx:if="{{detail.anchorName==anchorName}}" data-id="{{detail.roomId}}" bindtap="handleToStartLive">
+    开播</view>
+  <view class="yuyue1" data-id="{{detail.roomId}}" bindtap="handleToCancle"
+    wx:if="{{detail.isSubscribe&&detail.anchorName!=anchorName}}">已预约</view>
+</view>

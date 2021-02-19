@@ -1,0 +1,25 @@
+<!--components/liveItem/liveItem.wxml-->
+<view class="liveItem">
+  <view class="empty" wx:if="{{!detail}}">
+    暂无
+  </view>
+  <view 
+    class="item-content" 
+    wx:if="{{detail}}" 
+    data-id="{{detail.roomId}}"
+    bindtap="handleToLiveRoom">
+      <view class="show-img">
+        <image 
+          src="{{detail.anchorImg}}" mode="scaleToFill">
+    </image>
+    <view class="status">
+      <view class="left">
+        <image src="../../images/live/liveing.png"></image>
+        <text>直播</text>
+      </view>
+      <text>{{detail.vmAudience}}人在线</text>
+    </view>
+  </view>
+  <text class="title">{{detail.roomName}}</text>
+</view>
+</view>

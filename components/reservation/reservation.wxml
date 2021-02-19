@@ -1,0 +1,35 @@
+<!--components/reservation/reservation.wxml-->
+<wxs module="filter" src="../../utils/filter/filter.wxs"></wxs>
+<view class="reservation" bindtap="handleToReservation">
+  <view class="left">
+    <text class="yugao">直播<text style="color:red">预</text>告</text>
+    <text>{{list.length}}场即将开始</text>
+  </view>
+  <view class="divider"></view>
+  <view class="right">
+    <scroll-view scroll-y="true" enhanced paging-enabled show-scrollbar="{{false}}" style="height: 120rpx;">
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <view id="live-item" wx:if="{{item}}">
+          <text class="title">{{item.roomName}}</text>
+          <text class="startTime">{{item.startTime}}</text>
+        </view>
+      </block>
+      <view class="empty" wx:if="{{list.length==0}}">
+        <text >暂时无直播预告</text>
+      </view>
+      <!-- <view id="live-item">
+        <text class="title">VS擦速度给对方vv发的VS</text>
+        <text class="time">调手法</text>
+      </view> -->
+    </scroll-view>
+
+    <!-- <block 
+      wx:for="{{list}}" 
+      wx:key="{{index}}">
+      <view id="live-item" wx:if="{{list.length<=1}}">
+        <text class="title">{{item.roomName}}</text>
+        <text class="time">{{filter.handleTime(item.startTime)}}</text>
+      </view>
+    </block> -->
+  </view>
+</view>

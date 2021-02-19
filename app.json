@@ -1,0 +1,119 @@
+{
+  "pages": [
+    "pages/index/index/index",
+    "pages/my/auditing/auditing",
+    "pages/my/accounts/accounts",
+    "pages/my/index/index",
+    "pages/my/IDcard/IDcard",
+    "pages/index/switch_position/switch_position",
+    "pages/index/all_shequ/all_shequ",
+    "pages/index/community_details/community_details",
+    "pages/index/link/link",
+    "pages/index/news_details/news_details",
+    "pages/index/video_details/video_details",
+    "pages/index/all_comments/all_comments",
+    "pages/index/projects/projects",
+    "pages/index/projects_details/projects_details",
+    "pages/index/social_constructor/social_constructor",
+    "pages/index/article_detail/article_detail",
+    "pages/index/dialogue_robot/dialogue_robot",
+    "pages/property/index/index",
+    "pages/property/people_voice/people_voice",
+    "pages/property/release_topic/release_topic",
+    "pages/property/topic_details/topic_details",
+    "pages/attention/index/index",
+    "pages/my/more/more",
+    "pages/my/position/position",
+    "pages/my/examples/examples",
+    "pages/my/audit_pass/audit_pass",
+    "pages/my/publish/publish",
+    "pages/my/visit_record/visit_record",
+    "pages/my/message/message",
+    "pages/my/praise/praise",
+    "pages/common/search/search",
+    "pages/my/agreement/agreement",
+    "pages/index/active_details/active_details",
+    "pages/index/active_details/player_details/player_details",
+    "pages/index/active_details/active_info/active_info",
+    "pages/my/my_votes/my_votes",
+    "pages/live/index/index",
+    "pages/live/create_live/create_live",
+    "pages/live/detail/detail",
+    "pages/live/live_player/live_player",
+    "pages/live/home/home",
+    "pages/live/liveing/liveing",
+    "pages/live/reservation/reservation",
+    "pages/index/helper/helper"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "社区发展治理",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": true,
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "selectedColor": "#121311",
+    "color": "#9B9B9B",
+    "list": [
+      {
+        "pagePath": "pages/index/index/index",
+        "iconPath": "/images/menuicon01_1.png",
+        "selectedIconPath": "/images/menuicon01_2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/attention/index/index",
+        "iconPath": "/images/menuicon02_1.png",
+        "selectedIconPath": "/images/menuicon02_2.png",
+        "text": "关注"
+      },
+      {
+        "pagePath": "pages/live/home/home",
+        "iconPath": "/images/live/live.png",
+        "selectedIconPath": "/images/live/live-h.png",
+        "text": "社区直播"
+      },
+      {
+        "pagePath": "pages/property/index/index",
+        "iconPath": "/images/menuicon03_1.png",
+        "selectedIconPath": "/images/menuicon03_2.png",
+        "text": "民声"
+      },
+      {
+        "pagePath": "pages/my/index/index",
+        "iconPath": "/images/menuicon04_1.png",
+        "selectedIconPath": "/images/menuicon04_2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位效果展示"
+    }
+  },
+  "plugins": {
+    "myPlugin": {
+      "version": "1.1.3",
+      "provider": "wx3572fa9e027e055a"
+    },
+    "live-player-plugin": {
+      "version": "1.2.2",
+      "provider": "wx2b03c6e691cd7370"
+    }
+  },
+  "usingComponents": {
+    "navigation": "/components/navigation/navigation"
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

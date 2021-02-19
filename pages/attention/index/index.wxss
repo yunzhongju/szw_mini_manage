@@ -1,0 +1,106 @@
+@import "../../../utils/css/common.wxss";
+page,
+.container {
+    background-color: #FAFAFA;
+}
+
+
+/* 新闻 */
+
+.newlistBox {
+    padding: 0 32rpx;
+    margin-bottom: 20rpx;
+}
+
+.newlist {
+    padding: 22rpx 0;
+    border-bottom: 1rpx solid #D8D8D8;
+}
+
+.newlistLeft {
+    margin-right: 46rpx;
+    width: 442rpx;
+}
+
+.newlistLeft .title {
+    font-size: 26rpx;
+}
+
+.newlistLeft .tip {
+    margin-top: 42rpx;
+}
+
+.tipLeft {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.tipLeft image {
+    display: inline-block;
+    margin-right: 12rpx;
+}
+
+.ProjectName {
+    color: #999999;
+    height: 75rpx;
+    line-height: 75rpx;
+    font-size: 24rpx;
+}
+
+
+/* 未关注的 */
+
+.FocusOnImgBox {
+    margin: 39rpx 0 22rpx;
+}
+
+.FocusOnImg {
+    width: 315rpx;
+    height: 234rpx;
+    margin-bottom: 17rpx;
+}
+
+.FOIB01 {
+    font-size: 28rpx;
+    color: #999999;
+}
+
+.CB_title01 {
+    padding: 0 32rpx;
+    font-size: 28rpx;
+    color: #000;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-weight: 500;
+}
+
+
+/* 关注社区 */
+
+.communityBox {
+    padding: 0 32rpx;
+}
+
+.LCSwiper {
+    height: 243rpx;
+}
+
+.LC_ImgBox {
+    margin: 20rpx auto 0;
+}
+
+.LCIB_img {
+    width: 215rpx;
+    height: 161rpx;
+}
+
+.LCIB_text {
+    width: 215rpx;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #333;
+}
+
+.LC_mr {
+    margin-right: 18rpx;
+}

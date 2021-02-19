@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "正在直播",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f0f0f2",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "liveItem":"/components/liveItem/liveItem",
+    "van-divider": "@vant/weapp/divider/index"
+  }
+}

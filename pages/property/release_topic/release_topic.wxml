@@ -1,0 +1,27 @@
+	<view class="bg-white RT_content">
+			<input class="input_title" type="text" placeholder="输入标题，不超过25个字" maxlength="25" bindinput="getTitle"/>
+			<textarea class="textarea_style" placeholder="请输入内容" bindinput="getContent" />
+			<view class="clearfix imgBox">
+				<view class="float-l addImgBox">
+					<view class="float-l upImg" wx:for="{{image_path}}" wx:for-item="item" wx:key="i" wx:for-index="index">
+						<image class="ImgStyle" mode="aspectFill" src="{{item}}" />
+						<image class="icon_del" bindtap="image_del" data-id="{{index}}" src="/images/icon_del.png" />
+					</view>
+				</view>
+				<image wx:if="{{image_path.length<3}}" class="float-l ImgStyle {{image_path.length==1?'ml':''}}" bindtap="upImg" src="/images/add_img.png" />
+			</view>
+			<view class="upImgTitle">图片最多上传3张</view>
+			<view bindtap="TaptoSwitch_position" class="clearfix choose_Box choose_Box_border flex-con align-items-center">
+				<view class="flex-8"><image class="float-l icon_position" src="/images/icon_position.png" />{{communityDetails.name?communityDetails.name:"选择社区"}}</view>
+				<view class="flex-1"><image class="float-r icon_right01" src="/images/icon_right.png" /></view>
+			</view>
+			<view class="clearfix choose_Box flex-con align-items-center">
+				<view class="flex-8"><image class="float-l icon_column" src="/images/icon_column.png" />选择栏目</view>
+			</view>
+			<view class="clearfix choose_columnBox">
+				<block wx:for="{{getChildTreeListByParentID}}" wx:for-item="item" wx:key="i" wx:for-index="index">
+					<view class="float-l CCB {{item.channelid==navigation_id?'active':''}}" bindtap="choose_column" data-id="{{item.channelid}}">{{item.name}}</view>
+				</block>
+			</view>
+	</view>
+	<view class="publishBtn" bindtap="communityvoiceAdd">发表</view>

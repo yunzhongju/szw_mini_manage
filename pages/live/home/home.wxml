@@ -1,0 +1,33 @@
+<!--pages/live/home/home.wxml-->
+
+<view class="live-home">
+  <!-- 预约直播 -->
+  <reservation id="my-yuyue" list="{{noStartList}}"></reservation>
+  <!-- 正在直播 -->
+  <view wx:if="{{startingList.length>0}}">
+    <liveing len="{{startingList.length}}"></liveing>
+    <liveItem detail="{{startingList[0]}}"></liveItem>
+  </view>
+  <!-- 内容回顾 -->
+  <view style="height:100rpx" class="content-back">
+    <tabs 
+    tabs="{{tabs}}" 
+    class="my-tab {{isFixed?'isFixed':''}}"
+    bind:change="change" id="mytab"></tabs>
+  </view>
+  <!-- 展示数据 -->
+  <showList list="{{endList}}"></showList>
+  <!-- 创建直播 -->
+  <addLive class="show-add-live"></addLive>
+  <!-- 底部 -->
+  <!-- <van-empty
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="没有更多了"
+  /> -->
+
+</view>
+<!-- 直播引导 -->
+<helper 
+  class="helper" 
+  bind:handleToHelper="handleToHelper"
+  opacity="0.8"></helper>

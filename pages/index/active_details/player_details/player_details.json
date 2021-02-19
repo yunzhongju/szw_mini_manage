@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "选手详情",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh":false,
+  "usingComponents": {}
+}

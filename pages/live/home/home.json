@@ -1,0 +1,18 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "直播",
+  "navigationBarTextStyle": "black",
+  "backgroundColor":"#f0f0f2",
+  "enablePullDownRefresh":true,
+  "usingComponents": {
+    "reservation":"/components/reservation/reservation",
+    "liveing":"/components/liveing/liveing",
+    "liveItem":"/components/liveItem/liveItem",
+    "tabs":"/components/tabs/tabs",
+    "showList":"/components/showList/showList",
+    "addLive":"/components/addLive/addLive",
+    "van-empty": "@vant/weapp/empty/index",
+    "helper":"../../../components/helper/helper"
+  }
+}

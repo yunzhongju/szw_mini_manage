@@ -1,0 +1,11 @@
+<!--pages/live/reservation/reservation.wxml-->
+<view class="reservationItem">
+  <!-- 预约列表 -->
+  <block wx:for="{{list}}" wx:key="{{item.id}}">
+    <reservationItem 
+      bind:handleToCancle="handleToCancle"
+      bind:handleToReservat="handleToReservat"
+      detail="{{item}}"></reservationItem>
+    <van-divider hairline  custom-style="border:0 solid #DDDDDD"/>
+  </block>
+</view>
